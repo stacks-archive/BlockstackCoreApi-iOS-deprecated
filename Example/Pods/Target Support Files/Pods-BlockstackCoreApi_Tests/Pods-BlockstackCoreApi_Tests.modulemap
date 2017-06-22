@@ -1,0 +1,6 @@
+framework module Pods_BlockstackCoreApi_Tests {
+  umbrella header "Pods-BlockstackCoreApi_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

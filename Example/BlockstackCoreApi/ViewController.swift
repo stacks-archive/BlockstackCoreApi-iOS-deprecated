@@ -7,12 +7,26 @@
 //
 
 import UIKit
+import BlockstackCoreApi
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        BSCoreApi.ping { (result, error) in
+            if let result = result
+            {
+                print(String(data: result, encoding: String.Encoding.utf8)!)
+            }
+        }
+        
+        BSCoreApi.allNames { (result, error) in
+            if let result = result
+            {
+                print(String(data: result, encoding: String.Encoding.utf8)!)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

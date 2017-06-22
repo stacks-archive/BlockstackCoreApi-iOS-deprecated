@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'BlockstackCoreApi_Example' do
+  pod 'BlockstackCoreApi', :path => '../'
+
+  target 'BlockstackCoreApi_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

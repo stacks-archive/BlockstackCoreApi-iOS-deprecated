@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00417DFD1EFC59BA00F7230B /* BSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00417DFC1EFC59BA00F7230B /* BSConstants.swift */; };
+		005C5D241F015D7F00EC6808 /* BSBrowserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C5D231F015D7F00EC6808 /* BSBrowserAuth.swift */; };
 		007809221EFD574300CD2ED2 /* BSURLHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007809211EFD574300CD2ED2 /* BSURLHelpers.swift */; };
 		00E5BB091EFC58F00028879A /* BSEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5BB081EFC58F00028879A /* BSEndpoint.swift */; };
 		0F2B7CB12C953AE185BA5E1BC9843F1D /* BlockstackCoreApi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6C02DD6121A8582406D27455FF9DA6 /* BlockstackCoreApi-dummy.m */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		00417DFC1EFC59BA00F7230B /* BSConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSConstants.swift; sourceTree = "<group>"; };
+		005C5D231F015D7F00EC6808 /* BSBrowserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSBrowserAuth.swift; sourceTree = "<group>"; };
 		007809211EFD574300CD2ED2 /* BSURLHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSURLHelpers.swift; sourceTree = "<group>"; };
 		00E5BB081EFC58F00028879A /* BSEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSEndpoint.swift; sourceTree = "<group>"; };
 		0D45B064010ADEF095E66E0520948C41 /* Pods-BlockstackCoreApi_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BlockstackCoreApi_Example-resources.sh"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				00E5BB081EFC58F00028879A /* BSEndpoint.swift */,
 				00417DFC1EFC59BA00F7230B /* BSConstants.swift */,
 				007809211EFD574300CD2ED2 /* BSURLHelpers.swift */,
+				005C5D231F015D7F00EC6808 /* BSBrowserAuth.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				00E5BB091EFC58F00028879A /* BSEndpoint.swift in Sources */,
 				007809221EFD574300CD2ED2 /* BSURLHelpers.swift in Sources */,
 				0F2B7CB12C953AE185BA5E1BC9843F1D /* BlockstackCoreApi-dummy.m in Sources */,
+				005C5D241F015D7F00EC6808 /* BSBrowserAuth.swift in Sources */,
 				00417DFD1EFC59BA00F7230B /* BSConstants.swift in Sources */,
 				FD61CD14DC4E2C65D54A323A2743D653 /* BSCoreApi.swift in Sources */,
 			);
@@ -636,7 +640,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -672,7 +676,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

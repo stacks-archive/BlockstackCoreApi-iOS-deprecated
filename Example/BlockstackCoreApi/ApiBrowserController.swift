@@ -10,100 +10,15 @@ import UIKit
 import BlockstackCoreApi
 
 class ApiBrowserController: UITableViewController {
-
+    
+    enum Rows : Int
+    {
+        case ping = 0, allNames, nameInfo, zoneFile, namesOwned, allNamespaces, namespacePrice, namePrice, consensusHash,
+        pendingTransactions, userProfile, search
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        BSCoreApi.ping { (result, error) in
-            if let result = result
-            {
-                print(String(data: result, encoding: String.Encoding.utf8)!)
-            }
-        }
-        
-        BSCoreApi.allNames { (result, error) in
-            if let result = result
-            {
-                print(String(data: result, encoding: String.Encoding.utf8)!)
-            }
-        }
-        
-        BSCoreApi.nameInfo(for: "muneeb.id", { (result, error) in
-            if let result = result
-            {
-                print(String(data: result, encoding: String.Encoding.utf8)!)
-            }
-        })
-        
-        BSCoreApi.zoneFile(for: "muneeb.id", with: "b100a68235244b012854a95f9114695679002af9", { (result, error) in
-            if let result = result
-            {
-                print(String(data: result, encoding: String.Encoding.utf8)!)
-            }
-        })
-        
-        BSCoreApi.namesOwned(on: "bitcoin", for: "1Q3K7ymNVycu3TQoTDUaty8Q5fUVB3feEQ", { (result, error) in
-            if let result = result
-            {
-                print(String(data: result, encoding: String.Encoding.utf8)!)
-            }
-        })
-        
-        BSCoreApi.allNamespaces({ (result, error) in
-            if let result = result
-            {
-                print(String(data: result, encoding: String.Encoding.utf8)!)
-            }
-        })
-        
-        BSCoreApi.namespaceNames(namespace: "id") { (result, error) in
-            if let result = result
-            {
-                print(String(data: result, encoding: String.Encoding.utf8)!)
-            }
-        }
-        
-        BSCoreApi.namespacePrice(namespace: "cnn") { (result, error) in
-            if let result = result
-            {
-                print(String(data: result, encoding: String.Encoding.utf8)!)
-            }
-        }
-        
-        BSCoreApi.namePrice(name: "logan.id") { (result, error) in
-            if let result = result
-            {
-                print(String(data: result, encoding: String.Encoding.utf8)!)
-            }
-        }
-        
-        BSCoreApi.consensusHash(blockchain: "bitcoin") { (result, error) in
-            if let result = result
-            {
-                print(String(data: result, encoding: String.Encoding.utf8)!)
-            }
-        }
-        
-        BSCoreApi.pendingTransactions(blockchain: "bitcoin") { (result, error) in
-            if let result = result
-            {
-                print(String(data: result, encoding: String.Encoding.utf8)!)
-            }
-        }
-        
-        BSCoreApi.userProfile(username: "fredwilson") { (result, error) in
-            if let result = result
-            {
-                print(String(data: result, encoding: String.Encoding.utf8)!)
-            }
-        }
-        
-        BSCoreApi.search(query: "wilson") { (result, error) in
-            if let result = result
-            {
-                print(String(data: result, encoding: String.Encoding.utf8)!)
-            }
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -114,68 +29,213 @@ class ApiBrowserController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 12
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        guard let row = Rows(rawValue: indexPath.row) else
+        {
+            return cell
+        }
+        
+        cell.detailTextLabel?.text = ""
+        
         // Configure the cell...
-
+        switch row {
+        case .allNames:
+            cell.textLabel?.text = "All Names"
+        case .ping:
+            cell.textLabel?.text = "Ping"
+        case .nameInfo:
+            cell.textLabel?.text = "Name Info"
+        case .zoneFile:
+            cell.textLabel?.text = "Zone File"
+        case .namesOwned:
+            cell.textLabel?.text = "Names Owned"
+        case .allNamespaces:
+            cell.textLabel?.text = "All Namespaces"
+        case .namespacePrice:
+            cell.textLabel?.text = "Namespace Price"
+        case .namePrice:
+            cell.textLabel?.text = "Name Price"
+        case .consensusHash:
+            cell.textLabel?.text = "Consensus Hash"
+        case .pendingTransactions:
+            cell.textLabel?.text = "Pending Transactions"
+        case .userProfile:
+            cell.textLabel?.text = "User Profile"
+        case .search:
+            cell.textLabel?.text = "Search"
+        }
+            
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Configure the cell...
+        guard let row = Rows(rawValue: indexPath.row) else
+        {
+            return
+        }
+        
+        switch row {
+        case .allNames:
+            allNames()
+        case .ping:
+            ping()
+        case .nameInfo:
+            nameInfo()
+        case .zoneFile:
+            zoneFile()
+        case .namesOwned:
+            namesOwned()
+        case .allNamespaces:
+            allNamespaces()
+        case .namespacePrice:
+            namespacePrice()
+        case .namePrice:
+            namePrice()
+        case .consensusHash:
+            consensusHash()
+        case .pendingTransactions:
+            pendingTransactions()
+        case .userProfile:
+            userProfile()
+        case .search:
+            search()
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    */
+}
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+extension ApiBrowserController
+{
+    func ping()
+    {
+        BSCoreApi.ping { (result, error) in
+            self.showResults(data: result)
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func allNames()
+    {
+        BSCoreApi.allNames { (result, error) in
+            self.showResults(data: result)
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    func nameInfo(){
+        BSCoreApi.nameInfo(for: "muneeb.id", { (result, error) in
+            self.showResults(data: result)
+        })
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func zoneFile(){
+        BSCoreApi.zoneFile(for: "muneeb.id", with: "b100a68235244b012854a95f9114695679002af9", { (result, error) in
+            self.showResults(data: result)
+        })
     }
-    */
+    
+    func namesOwned(){
+        BSCoreApi.namesOwned(on: "bitcoin", for: "1Q3K7ymNVycu3TQoTDUaty8Q5fUVB3feEQ", { (result, error) in
+            self.showResults(data: result)
+        })
+    }
+    
+    func allNamespaces(){
+        BSCoreApi.allNamespaces({ (result, error) in
+            self.showResults(data: result)
+        })
+    }
+    
+    func namespaceNames(){
+        BSCoreApi.namespaceNames(namespace: "id") { (result, error) in
+            self.showResults(data: result)
+        }
+    }
+    
+    func namespacePrice(){
+        BSCoreApi.namespacePrice(namespace: "cnn") { (result, error) in
+            self.showResults(data: result)
+        }
+    }
+    
+    func namePrice(){
+        BSCoreApi.namePrice(name: "logan.id") { (result, error) in
+            self.showResults(data: result)
+        }
+    }
+    
+    func consensusHash(){
+        BSCoreApi.consensusHash(blockchain: "bitcoin") { (result, error) in
+            self.showResults(data: result)
+        }
+    }
+    
+    func pendingTransactions(){
+        BSCoreApi.pendingTransactions(blockchain: "bitcoin") { (result, error) in
+            self.showResults(data: result)
+        }
+    }
+    
+    func userProfile(){
+        BSCoreApi.userProfile(username: "fredwilson") { (result, error) in
+            self.showResults(data: result)
+        }
+    }
+    
+    func search(){
+        BSCoreApi.search(query: "wilson") { (result, error) in
+            self.showResults(data: result)
+        }
+    }
+    
+    func showResults(data : Data?)
+    {
+        guard let resultString = resultsAsString(data: data) else
+        {
+            return
+        }
+        
+        let alert = UIAlertController(title: "Results", message: resultString, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func resultsAsString(data : Data?) -> String?
+    {
+        guard let result = data, let dataString = String(data: result, encoding: String.Encoding.utf8) else
+        {
+            return nil
+        }
+        
+        return dataString
+    }
+    
+    func resultsFromMap(data : Data?) -> String?
+    {
+        guard let result = data, let dataDictionary = try? JSONSerialization.jsonObject(with: result, options: []) else
+        {
+            return nil
+        }
+        
+        if let dataDictionary = dataDictionary as? [String : Any]
+        {
+            return dataDictionary.description
+        }else if let dataArray = dataDictionary as? [[String : Any]]
+        {
+            return dataArray.description
+        }
+        return nil
+    }
+    
 
 }

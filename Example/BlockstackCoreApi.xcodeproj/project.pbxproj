@@ -54,7 +54,7 @@
 		611FCBAA7CE26E6FFBA61C27 /* Pods_BlockstackCoreApi_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockstackCoreApi_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B236F519C5EF6F0996EE582 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		992433C88E6F778D6857026E /* Pods-BlockstackCoreApi_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockstackCoreApi_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlockstackCoreApi_Tests/Pods-BlockstackCoreApi_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		9DC88441A253B5A4ACF4D707 /* BlockstackCoreApi.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = BlockstackCoreApi.podspec; path = ../BlockstackCoreApi.podspec; sourceTree = "<group>"; };
+		9DC88441A253B5A4ACF4D707 /* BlockstackCoreApi-iOS.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "BlockstackCoreApi-iOS.podspec"; path = "../BlockstackCoreApi-iOS.podspec"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +152,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				9DC88441A253B5A4ACF4D707 /* BlockstackCoreApi.podspec */,
+				9DC88441A253B5A4ACF4D707 /* BlockstackCoreApi-iOS.podspec */,
 				22D8858959EFAFBFF26A1676 /* README.md */,
 				7B236F519C5EF6F0996EE582 /* LICENSE */,
 			);

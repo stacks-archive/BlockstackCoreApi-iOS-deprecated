@@ -20,13 +20,15 @@ public class BSCoreApi
 //MARK: Administrative API
 extension BSCoreApi
 {
-    public static func ping(page : Int = 0, _ handler : @escaping BSApiCompletionHandler<BSPingResponse>)
+    public static func ping(page : Int = 0, _ handler : @escaping BSApiCompletionHandler<Data>)
     {
         var request = URLRequest(url: URL(string: BSEndpoint.pingPath())!)
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            handler(BSPingResponse.deserialize(from: data), error)
+            if let data = data {
+                handler(data, error)
+            }
         }).resume()
     }
 }
@@ -199,23 +201,16 @@ extension BSCoreApi
 //MARK: Users
 extension BSCoreApi
 {
-    public static func userProfile(username : String, _ handler : @escaping BSApiCompletionHandler<BSProfileResponse>)
+    public static func userProfile(username : String, _ handler : @escaping BSApiCompletionHandler<Data>)
     {
         let url =  BSEndpoint.userPath(user: username)
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            var parsedResponse : BSProfileResponse?
             if let data = data {
-                
-                let decoder = JSONDecoder()
-                if let result = try? decoder.decode([String: BSProfileResponse].self, from: data)
-                {
-                    parsedResponse = result.values.first
-                }
+                handler(data, error)
             }
-            handler(parsedResponse, error)
             
         }).resume()
     }
@@ -224,14 +219,16 @@ extension BSCoreApi
 //MARK: Search
 extension BSCoreApi
 {
-    public static func search(query : String, _ handler : @escaping BSApiCompletionHandler<BSSearchResponse>)
+    public static func search(query : String, _ handler : @escaping BSApiCompletionHandler<Data>)
     {
         let url =  BSURLHelpers.buildURL(with: BSEndpoint.searchPath(), queryParams: ["query": query])!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            handler(BSSearchResponse.deserialize(from: data), error)
+            if let data = data {
+                handler(data, error)
+            }
         }).resume()
     }
 }

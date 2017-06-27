@@ -116,7 +116,7 @@ extension ApiBrowserController
     func ping()
     {
         BSCoreApi.ping { (result, error) in
-            self.showResults(object: result, error: error)
+            self.showResults(data: result)
         }
     }
     
@@ -183,13 +183,13 @@ extension ApiBrowserController
     
     func userProfile(){
         BSCoreApi.userProfile(username: "fredwilson") { (result, error) in
-            self.showResults(object: result, error: error)
+            self.showResults(data: result)
         }
     }
     
     func search(){
         BSCoreApi.search(query: "ja") { (result, error) in
-            self.showResults(object: result, error: error)
+            self.showResults(data: result)
         }
     }
     
@@ -198,12 +198,12 @@ extension ApiBrowserController
 //MARK: Display helpers to show results
 extension ApiBrowserController{
     
-    func showResults(object : Codable?, error : Error?)
-    {
-        let result = object ?? (error?.localizedDescription ?? "No Response")
-        let string = String(describing: result)
-        showPopup(string: string)
-    }
+//    func showResults(object : Codable?, error : Error?)
+//    {
+//        let result = object ?? (error?.localizedDescription ?? "No Response")
+//        let string = String(describing: result)
+//        showPopup(string: string)
+//    }
     
     func showResults(data : Data?)
     {

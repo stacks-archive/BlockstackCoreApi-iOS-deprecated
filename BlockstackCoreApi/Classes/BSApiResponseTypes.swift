@@ -11,7 +11,7 @@
 //  structures below.
 
 import Foundation
-
+/*
 //MARK: ping
 public struct BSPingResponse : Serializable
 {
@@ -127,4 +127,4 @@ extension Serializable
         let decoder = JSONDecoder()
         return try? decoder.decode([Self].self, from: data)
     }
-}
+}*/

@@ -11,7 +11,6 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-This project uses Swift 4 and will only run on XCode 9+ (in beta at the time of writing). To download a beta of xcode 9, see developer.apple.com/ios
 
 ## Installation
 

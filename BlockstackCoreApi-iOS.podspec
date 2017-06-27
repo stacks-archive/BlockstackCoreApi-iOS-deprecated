@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     access user data from the blockstack platform
                        DESC
 
-  s.homepage         = 'https://github.com/bedkin/BlockstackCoreApi'
+  s.homepage         = 'https://github.com/bedkin/BlockstackCoreApi-iOS'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Logan Sease' => 'logan@bedkin.com' }

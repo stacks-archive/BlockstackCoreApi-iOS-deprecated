@@ -3,7 +3,7 @@
 //  BlockstackCoreApi
 //
 //  Created by lsease on 6/22/17.
-//
+//  This file defines the endpoints that are called in the core api
 
 
 struct BSEndpoint

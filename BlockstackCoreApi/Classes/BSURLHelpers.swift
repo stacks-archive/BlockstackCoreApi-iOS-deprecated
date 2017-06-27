@@ -3,7 +3,7 @@
 //  BlockstackCoreApi
 //
 //  Created by lsease on 6/23/17.
-//
+//  A class of url helpers to help create URLs
 
 import Foundation
 

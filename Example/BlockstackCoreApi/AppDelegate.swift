@@ -13,13 +13,13 @@ import BlockstackCoreApi
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         return true
     }
     
+    
+    //in order to complete the authorization process we must call the browser auth openURL method so it may
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         if let scheme = url.scheme, scheme.contains("bs")
         {
@@ -27,15 +27,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
-    
-    func topViewController() -> UIViewController?
-    {
-        if let nav = window?.rootViewController as? UINavigationController
-        {
-            return nav.topViewController
-        }
-        return nil
-    }
-
 }
 

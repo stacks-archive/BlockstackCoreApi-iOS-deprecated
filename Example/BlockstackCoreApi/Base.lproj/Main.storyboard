@@ -22,21 +22,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SS0-Jy-Jhz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bs-background-blur.png" translatesAutoresizingMaskIntoConstraints="NO" id="d26-uj-vBc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SS0-Jy-Jhz" customClass="OutlineButton" customModule="BlockstackCoreApi_Example" customModuleProvider="target">
                                 <rect key="frame" x="16" y="347" width="343" height="48"/>
+                                <color key="backgroundColor" red="0.41176470590000003" green="0.41176470590000003" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="IfC-MI-OIM"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="API Browser"/>
                                 <connections>
                                     <segue destination="BNH-6M-yS6" kind="show" id="yhW-5u-T6r"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6P-Nr-Wq3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6P-Nr-Wq3" customClass="OutlineButton" customModule="BlockstackCoreApi_Example" customModuleProvider="target">
                                 <rect key="frame" x="16" y="279.5" width="343" height="48"/>
+                                <color key="backgroundColor" red="0.41176470590000003" green="0.41176470590000003" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="FRG-v5-Lch"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Authorize"/>
                                 <connections>
                                     <action selector="authorize" destination="vXZ-lx-hvc" eventType="touchUpInside" id="o8p-Cj-oFt"/>
@@ -45,9 +52,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="d26-uj-vBc" secondAttribute="trailing" id="5Qk-9V-FQG"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="d26-uj-vBc" secondAttribute="bottom" id="DTn-t7-zKi"/>
                             <constraint firstItem="SS0-Jy-Jhz" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Er2-tD-Kea"/>
                             <constraint firstItem="F6P-Nr-Wq3" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" constant="-30" id="ZuO-Du-EyD"/>
                             <constraint firstItem="F6P-Nr-Wq3" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="cSe-eS-zfz"/>
+                            <constraint firstItem="d26-uj-vBc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="n2X-EM-rYm"/>
+                            <constraint firstItem="d26-uj-vBc" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="sgK-II-Gv4"/>
                             <constraint firstItem="SS0-Jy-Jhz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="tgc-A6-fxo"/>
                             <constraint firstItem="SS0-Jy-Jhz" firstAttribute="top" secondItem="F6P-Nr-Wq3" secondAttribute="bottom" constant="19.5" id="x03-dn-Faf"/>
                             <constraint firstItem="F6P-Nr-Wq3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="z22-T2-6c3"/>
@@ -122,4 +133,7 @@
             <point key="canvasLocation" x="32.799999999999997" y="36.431784107946029"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bs-background-blur.png" width="722" height="1074"/>
+    </resources>
 </document>

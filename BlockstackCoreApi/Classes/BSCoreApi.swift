@@ -1,4 +1,15 @@
+//
+//  BSCoreApi
+//  BlockstackCoreApi
+//
+//  Created by lsease@gmail.com on 06/22/2017.
+//  Copyright (c) 2017 lsease@gmail.com. All rights reserved.
+//
+//  This class defines the core api methods and queries our the blockstack core api to resolve each.
 
+
+
+// This is a generic completion handler for our api methods to return results or an error back to the caller.
 public typealias BSApiCompletionHandler<T> = (_ object: T?, _ error: Error?) -> Void
 
 public class BSCoreApi
@@ -9,15 +20,13 @@ public class BSCoreApi
 //MARK: Administrative API
 extension BSCoreApi
 {
-    public static func ping(page : Int = 0, _ handler : @escaping BSApiCompletionHandler<Data>)
+    public static func ping(page : Int = 0, _ handler : @escaping BSApiCompletionHandler<BSPingResponse>)
     {
         var request = URLRequest(url: URL(string: BSEndpoint.pingPath())!)
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let data = data {
-                handler(data, error)
-            }
+            handler(BSPingResponse.deserialize(from: data), error)
         }).resume()
     }
 }
@@ -190,16 +199,24 @@ extension BSCoreApi
 //MARK: Users
 extension BSCoreApi
 {
-    public static func userProfile(username : String, _ handler : @escaping BSApiCompletionHandler<Data>)
+    public static func userProfile(username : String, _ handler : @escaping BSApiCompletionHandler<BSProfileResponse>)
     {
         let url =  BSEndpoint.userPath(user: username)
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+            var parsedResponse : BSProfileResponse?
             if let data = data {
-                handler(data, error)
+                
+                let decoder = JSONDecoder()
+                if let result = try? decoder.decode([String: BSProfileResponse].self, from: data)
+                {
+                    parsedResponse = result.values.first
+                }
             }
+            handler(parsedResponse, error)
+            
         }).resume()
     }
 }
@@ -207,16 +224,14 @@ extension BSCoreApi
 //MARK: Search
 extension BSCoreApi
 {
-    public static func search(query : String, _ handler : @escaping BSApiCompletionHandler<Data>)
+    public static func search(query : String, _ handler : @escaping BSApiCompletionHandler<BSSearchResponse>)
     {
         let url =  BSURLHelpers.buildURL(with: BSEndpoint.searchPath(), queryParams: ["query": query])!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let data = data {
-                handler(data, error)
-            }
+            handler(BSSearchResponse.deserialize(from: data), error)
         }).resume()
     }
 }

@@ -4,7 +4,7 @@
 //
 //  Created by lsease on 6/22/17.
 //
-//
+//  Project wide constants
 
 struct BSConstants
 {

@@ -10,13 +10,11 @@ import UIKit
 import BlockstackCoreApi
 
 class MainViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     @IBAction func authorize()
     {
+        //perform an authorization with a random ID and the app name.
+        //alert the user of the result
         BSBrowserAuth.authorize(appId: "777", name: "HelloBlockStack") { (token) in
                 if let token = token
                 {
@@ -35,11 +33,5 @@ class MainViewController: UIViewController {
                 }
             }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 }
 

@@ -37,6 +37,16 @@ pod "BlockstackCoreApi"
 </array>
 ```
 
+also add blockstack to your query schemes so that the app is allowed to verify blockstack is installed
+```
+<key>LSApplicationQueriesSchemes</key>
+<array>
+    <string>blockstack</string>
+</array>
+```
+
+
+
 3- In your app delegate, did open url method, you must pass on the authorization response from blockstack
 ```
 //in order to complete the authorization process we must call the browser auth openURL method so it may

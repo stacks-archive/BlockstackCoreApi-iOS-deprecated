@@ -26,7 +26,11 @@ extension BSCoreApi
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            handler(BSPingResponse.deserialize(from: data), error)
+            let result = BSPingResponse.deserialize(from: data)
+            DispatchQueue.main.async {
+                    handler(result, error)
+            }
+            
         }).resume()
     }
 }
@@ -41,7 +45,7 @@ extension BSCoreApi{
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let data = data {
+            DispatchQueue.main.async {
                 handler(data, error)
             }
         }).resume()
@@ -54,9 +58,11 @@ extension BSCoreApi{
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let data = data {
-                handler(data, error)
-            }
+            
+                DispatchQueue.main.async {
+                    handler(data, error)
+                }
+            
         }).resume()
     }
     
@@ -67,9 +73,11 @@ extension BSCoreApi{
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let data = data {
-                handler(data, error)
-            }
+            
+                DispatchQueue.main.async {
+                    handler(data, error)
+                }
+            
         }).resume()
     }
     
@@ -80,9 +88,11 @@ extension BSCoreApi{
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let data = data {
-                handler(data, error)
-            }
+            
+                DispatchQueue.main.async {
+                    handler(data, error)
+                }
+            
         }).resume()
     }
 }
@@ -97,9 +107,11 @@ extension BSCoreApi
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let data = data {
-                handler(data, error)
-            }
+            
+                DispatchQueue.main.async {
+                    handler(data, error)
+                }
+            
         }).resume()
     }
 }
@@ -114,9 +126,11 @@ extension BSCoreApi
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let data = data {
-                handler(data, error)
-            }
+            
+                DispatchQueue.main.async {
+                    handler(data, error)
+                }
+            
         }).resume()
     }
     
@@ -127,9 +141,11 @@ extension BSCoreApi
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let data = data {
-                handler(data, error)
-            }
+            
+                DispatchQueue.main.async {
+                    handler(data, error)
+                }
+            
         }).resume()
     }
 }
@@ -145,9 +161,11 @@ extension BSCoreApi
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let data = data {
-                handler(data, error)
-            }
+            
+                DispatchQueue.main.async {
+                    handler(data, error)
+                }
+            
         }).resume()
     }
     
@@ -159,9 +177,11 @@ extension BSCoreApi
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let data = data {
-                handler(data, error)
-            }
+            
+                DispatchQueue.main.async {
+                    handler(data, error)
+                }
+            
         }).resume()
     }
 }
@@ -176,9 +196,11 @@ extension BSCoreApi
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let data = data {
-                handler(data, error)
-            }
+            
+                DispatchQueue.main.async {
+                    handler(data, error)
+                }
+            
         }).resume()
     }
     
@@ -189,9 +211,11 @@ extension BSCoreApi
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            if let data = data {
-                handler(data, error)
-            }
+            
+                DispatchQueue.main.async {
+                    handler(data, error)
+                }
+            
         }).resume()
     }
 }
@@ -215,7 +239,10 @@ extension BSCoreApi
                     parsedResponse = result.values.first
                 }
             }
-            handler(parsedResponse, error)
+            
+            DispatchQueue.main.async {
+                handler(parsedResponse, error)
+            }
             
         }).resume()
     }
@@ -231,7 +258,11 @@ extension BSCoreApi
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-            handler(BSSearchResponse.deserialize(from: data), error)
+            
+            let results = BSSearchResponse.deserialize(from: data)
+            DispatchQueue.main.async {
+                handler(results , error)
+            }
         }).resume()
     }
 }

@@ -29,12 +29,12 @@ public class BSBrowserAuth: NSObject {
             return
         }
         
-        guard let encodedString = String(format: urlString).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+        guard let encodedString = String(format: urlString).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+        let url = URL(string: encodedString) else {
             handler(nil)
             return
         }
         
-        let url = URL(string: "blockstack://auth?id=\(appId)&name=\(name)")!
         UIApplication.shared.openURL(url)
         responseHandler = handler
     }

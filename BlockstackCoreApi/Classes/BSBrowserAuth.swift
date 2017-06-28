@@ -34,7 +34,11 @@ public class BSBrowserAuth: NSObject {
             return
         }
         
+<<<<<<< HEAD
         let url = URL(string: encodedString)!
+=======
+        let url = URL(string: "blockstack://auth?id=\(appId)&name=\(name)")!
+>>>>>>> swift4
         UIApplication.shared.openURL(url)
         responseHandler = handler
     }

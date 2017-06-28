@@ -48,5 +48,9 @@
             </array>
         </dict>
     </array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>blockstack</string>
+    </array>
 </dict>
 </plist>

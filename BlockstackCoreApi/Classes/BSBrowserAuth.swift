@@ -14,7 +14,7 @@ public class BSBrowserAuth: NSObject {
     //determine if we can authorize the app, which will tell us if blockstack is installed.
     public static func canAuthorize() -> Bool
     {
-        let url = URL(string: "blockstack://auth")!
+        let url = URL(string: "blockstack://")!
         return UIApplication.shared.canOpenURL(url)
     }
     
@@ -22,6 +22,18 @@ public class BSBrowserAuth: NSObject {
     //it will retain the completion handler to be called after authorizatin and open the block stack app
     public static func authorize(appId: String, name: String, handler : @escaping (String?) -> Void)
     {
+        let urlString = "blockstack://auth?id=\(appId)&name=\(name)"
+        
+        guard canAuthorize() == true else {
+            handler(nil)
+            return
+        }
+        
+        guard let encodedString = String(format: urlString).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            handler(nil)
+            return
+        }
+        
         let url = URL(string: "blockstack://auth?id=\(appId)&name=\(name)")!
         UIApplication.shared.openURL(url)
         responseHandler = handler

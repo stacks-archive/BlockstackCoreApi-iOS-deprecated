@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0053ED171F0158A100E039E1 /* ApiBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053ED161F0158A100E039E1 /* ApiBrowserController.swift */; };
-		005C5D2E1F02DBBA00EC6808 /* bs-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 005C5D2D1F02DBBA00EC6808 /* bs-background.png */; };
-		005C5D301F02DBBF00EC6808 /* bs-background-blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 005C5D2F1F02DBBF00EC6808 /* bs-background-blur.png */; };
 		005C5D371F02DD8600EC6808 /* OutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C5D361F02DD8600EC6808 /* OutlineButton.swift */; };
+		008A13561F0403BD00C46D5F /* bs-background-blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 008A13551F0402C700C46D5F /* bs-background-blur.png */; };
+		008A13571F0403BF00C46D5F /* bs-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 008A13541F0402C700C46D5F /* bs-background.png */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* MainViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -33,9 +33,9 @@
 
 /* Begin PBXFileReference section */
 		0053ED161F0158A100E039E1 /* ApiBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiBrowserController.swift; sourceTree = "<group>"; };
-		005C5D2D1F02DBBA00EC6808 /* bs-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bs-background.png"; sourceTree = "<group>"; };
-		005C5D2F1F02DBBF00EC6808 /* bs-background-blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bs-background-blur.png"; sourceTree = "<group>"; };
 		005C5D361F02DD8600EC6808 /* OutlineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutlineButton.swift; path = ../../../../../Desktop/OutlineButton.swift; sourceTree = "<group>"; };
+		008A13541F0402C700C46D5F /* bs-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bs-background.png"; sourceTree = "<group>"; };
+		008A13551F0402C700C46D5F /* bs-background-blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bs-background-blur.png"; sourceTree = "<group>"; };
 		22D8858959EFAFBFF26A1676 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		26EFF67A18E01F2FA868498A /* Pods-BlockstackCoreApi_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockstackCoreApi_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlockstackCoreApi_Example/Pods-BlockstackCoreApi_Example.release.xcconfig"; sourceTree = "<group>"; };
 		357F4EC5A819B5F32E2D872C /* Pods-BlockstackCoreApi_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockstackCoreApi_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockstackCoreApi_Example/Pods-BlockstackCoreApi_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -80,9 +80,9 @@
 		005C5D311F02DBC500EC6808 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				008A13551F0402C700C46D5F /* bs-background-blur.png */,
+				008A13541F0402C700C46D5F /* bs-background.png */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				005C5D2D1F02DBBA00EC6808 /* bs-background.png */,
-				005C5D2F1F02DBBF00EC6808 /* bs-background-blur.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -269,9 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
+				008A13571F0403BF00C46D5F /* bs-background.png in Resources */,
+				008A13561F0403BD00C46D5F /* bs-background-blur.png in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
-				005C5D301F02DBBF00EC6808 /* bs-background-blur.png in Resources */,
-				005C5D2E1F02DBBA00EC6808 /* bs-background.png in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

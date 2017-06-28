@@ -190,6 +190,7 @@ extension ApiBrowserController
     func search(){
         BSCoreApi.search(query: "ja") { (result, error) in
             self.showResults(object: result, error: error)
+            print(result?.results.count ?? 0)
         }
     }
     

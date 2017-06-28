@@ -3,7 +3,7 @@
 //  BlockstackCoreApi
 //
 //  Created by lsease on 6/27/17.
-//  This file lays out various responses that may come through the api by supplying structs that the responses may be
+//  This file lays out public various responses that may come through the api by supplying structs that the responses may be
 //  easily parsed into using the swift 4 Codable protocol.
 //  Note serialization is preformed via a protocol extension Serializable that subclasses Codable
 //  Note also, I haven't implemented most of the response objects yet, but this is a demo of how to do it easily.
@@ -15,8 +15,8 @@ import Foundation
 //MARK: ping
 public struct BSPingResponse : Serializable
 {
-    var status : String
-    var version : String
+    public var status : String
+    public var version : String
 }
 
 
@@ -24,72 +24,72 @@ public struct BSPingResponse : Serializable
 //MARK: search
 public struct BSSearchResponse : Serializable
 {
-    var results : [BSSearchResult]
+    public var results : [BSSearchResult]
     
     public struct BSSearchResult : Serializable
     {
-        var profile : BSProfile
+        public var profile : BSProfile
     }
 }
 
 public struct BSProfile : Serializable
 {
-    var account : [BSAccount]
-    var address : BSAddress
-    var description : String
+    public var account : [BSAccount]
+    public var address : BSAddress
+    public var description : String
     
     public struct BSAddress : Serializable
     {
-        var addressLocality : String
+        public var addressLocality : String
     }
 }
 
 public struct BSAccount : Serializable
 {
-    var identifier : String
-    var service : String
-    var proofType : String?
-    var role : String?
-    var proofUrl : String?
+    public var identifier : String
+    public var service : String
+    public var proofType : String?
+    public var role : String?
+    public var proofUrl : String?
 }
 
 //MARK: Profile
 public struct BSProfileResponse : Serializable
 {
-    var profile : BSProfile
+    public var profile : BSProfile
     
     public struct BSProfile : Serializable
     {
-        var account : [BSAccount]
-        var description : String
-        var address : BSAddress
-        var image : [BSImage]
+        public var account : [BSAccount]
+        public var description : String
+        public var address : BSAddress
+        public var image : [BSImage]
         
         public struct BSAddress : Serializable
         {
-            var addressLocality : String
+            public var addressLocality : String
         }
         
         public struct BSImage : Serializable
         {
-            var contentUrl : String
-            var name : String
+            public var contentUrl : String
+            public var name : String
         }
     }
 }
 
 public struct BSUrlContainer : Serializable{
-    var url : String
+    public var url : String
 }
 
 public struct BSAddressContainer : Serializable
 {
-    var address : String
+    public var address : String
 }
 
 public struct BSFormatContainer : Serializable
 {
-    var formatted : String
+    public var formatted : String
 }
 
 

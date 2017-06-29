@@ -38,15 +38,23 @@ extension BSCoreApi
 //MARK: Names
 extension BSCoreApi{
     
-    public static func allNames(page : Int = 0, _ handler : @escaping BSApiCompletionHandler<Data>)
+    public static func allNames(page : Int = 0, _ handler : @escaping BSApiCompletionHandler<[String]>)
     {
         let url =  BSURLHelpers.buildURL(with: BSEndpoint.namesPath(), queryParams: ["page": String(page)])!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+            
+            var parsedResponse : [String]?
+            
+            if let data = data{
+                let decoder = JSONDecoder()
+                parsedResponse = try? decoder.decode([String].self, from: data)
+            }
+            
             DispatchQueue.main.async {
-                handler(data, error)
+                handler(parsedResponse, error)
             }
         }).resume()
     }
@@ -100,7 +108,7 @@ extension BSCoreApi{
 //MARK: Addresses
 extension BSCoreApi
 {
-    public static func namesOwned(on blockchain: String, for address : String, _ handler : @escaping BSApiCompletionHandler<Data> )
+    public static func namesOwned(on blockchain: String, for address : String, _ handler : @escaping BSApiCompletionHandler<[String]> )
     {
         let url =  BSEndpoint.namesOwnedPath(blockChain: blockchain, address: address)
         var request = URLRequest(url: URL(string: url)!)
@@ -108,9 +116,17 @@ extension BSCoreApi
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             
-                DispatchQueue.main.async {
-                    handler(data, error)
-                }
+            var parsedResponse : [String]?
+            
+            if let data = data{
+                let decoder = JSONDecoder()
+                let parsedMap = try? decoder.decode([String : [String]].self, from: data)
+                parsedResponse = parsedMap?.values.first
+            }
+            
+            DispatchQueue.main.async {
+                handler(parsedResponse, error)
+            }
             
         }).resume()
     }
@@ -119,7 +135,7 @@ extension BSCoreApi
 //MARK: Namespaces
 extension BSCoreApi
 {
-    public static func allNamespaces( _ handler : @escaping BSApiCompletionHandler<Data> )
+    public static func allNamespaces( _ handler : @escaping BSApiCompletionHandler<[String]> )
     {
         let url =  BSEndpoint.namespacesPath()
         var request = URLRequest(url: URL(string: url)!)
@@ -127,14 +143,21 @@ extension BSCoreApi
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             
-                DispatchQueue.main.async {
-                    handler(data, error)
-                }
+            var parsedResponse : [String]?
+            
+            if let data = data{
+                let decoder = JSONDecoder()
+                parsedResponse = try? decoder.decode([String].self, from: data)
+            }
+            
+            DispatchQueue.main.async {
+                handler(parsedResponse, error)
+            }
             
         }).resume()
     }
     
-    public static func namespaceNames(namespace : String, page : Int = 0, _ handler : @escaping BSApiCompletionHandler<Data>)
+    public static func namespaceNames(namespace : String, page : Int = 0, _ handler : @escaping BSApiCompletionHandler<[String]>)
     {
         let url =  BSURLHelpers.buildURL(with: BSEndpoint.namespaceNamesPath(namespace: namespace), queryParams: ["page": String(page)])!
         var request = URLRequest(url: url)
@@ -142,9 +165,16 @@ extension BSCoreApi
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             
-                DispatchQueue.main.async {
-                    handler(data, error)
-                }
+            var parsedResponse : [String]?
+            
+            if let data = data{
+                let decoder = JSONDecoder()
+                parsedResponse = try? decoder.decode([String].self, from: data)
+            }
+            
+            DispatchQueue.main.async {
+                handler(parsedResponse, error)
+            }
             
         }).resume()
     }
@@ -189,7 +219,7 @@ extension BSCoreApi
 //MARK: Blockchains
 extension BSCoreApi
 {
-    public static func consensusHash(blockchain : String, _ handler : @escaping BSApiCompletionHandler<Data>)
+    public static func consensusHash(blockchain : String, _ handler : @escaping BSApiCompletionHandler<String>)
     {
         let url =  BSEndpoint.consensusPath(blockchain: blockchain)
         var request = URLRequest(url: URL(string: url)!)
@@ -197,9 +227,17 @@ extension BSCoreApi
         
         URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
             
-                DispatchQueue.main.async {
-                    handler(data, error)
-                }
+            var parsedResponse : String?
+            
+            if let data = data{
+                let decoder = JSONDecoder()
+                let parsedMap = try? decoder.decode([String:String].self, from: data)
+                parsedResponse = parsedMap?.values.first
+            }
+            
+            DispatchQueue.main.async {
+                handler(parsedResponse, error)
+            }
             
         }).resume()
     }

@@ -19,18 +19,35 @@ public struct BSPingResponse : Serializable
     public var version : String
 }
 
-
-
 //MARK: search
 public struct BSSearchResponse : Serializable
 {
-    public var results : [BSSearchResult]
+    public var results : [BSOneNameSearchResult]
     
     public struct BSSearchResult : Serializable
     {
         public var profile : BSProfile
     }
+    
+    public struct BSOneNameSearchResult : Serializable
+    {
+        public var profile : BSOneNameProfile?
+        public var username : String?
+    }
 }
+
+public struct BSOneNameProfile: Serializable
+{
+    public var avatar : BSUrlContainer?
+    public var bio : String?
+    public var bitcoin : BSAddressContainer?
+    public var cover : BSUrlContainer?
+    public var location : BSFormatContainer?
+    public var name : BSFormatContainer?
+    public var website : String?
+}
+
+
 
 public struct BSProfile : Serializable
 {
@@ -79,17 +96,17 @@ public struct BSProfileResponse : Serializable
 }
 
 public struct BSUrlContainer : Serializable{
-    public var url : String
+    public var url : String?
 }
 
 public struct BSAddressContainer : Serializable
 {
-    public var address : String
+    public var address : String?
 }
 
 public struct BSFormatContainer : Serializable
 {
-    public var formatted : String
+    public var formatted : String?
 }
 
 

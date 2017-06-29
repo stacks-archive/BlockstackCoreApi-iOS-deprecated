@@ -100,6 +100,6 @@ struct BSEndpoint
     
     static func searchPath() -> String
     {
-        return BasePath + Subpath.search
+        return "https://api.blockstack.com/v1" + Subpath.search
     }
 }

@@ -16,7 +16,7 @@ class ApiBrowserController: UITableViewController {
     //an object to track the different rows.
     enum Rows : Int
     {
-        case ping = 0, allNames, nameInfo, zoneFile, namesOwned, allNamespaces, namespacePrice, namePrice, consensusHash,
+        case ping = 0, allNames, nameInfo, zoneFile, namesOwned, allNamespaces, namespaceNames, namespacePrice, namePrice, consensusHash,
         pendingTransactions, userProfile, search
     }
 
@@ -27,7 +27,7 @@ class ApiBrowserController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return 13
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,6 +54,8 @@ class ApiBrowserController: UITableViewController {
             cell.textLabel?.text = "Names Owned"
         case .allNamespaces:
             cell.textLabel?.text = "All Namespaces"
+        case .namespaceNames:
+            cell.textLabel?.text = "Namespace Names"
         case .namespacePrice:
             cell.textLabel?.text = "Namespace Price"
         case .namePrice:
@@ -92,6 +94,8 @@ class ApiBrowserController: UITableViewController {
             namesOwned()
         case .allNamespaces:
             allNamespaces()
+        case .namespaceNames:
+            namespaceNames()
         case .namespacePrice:
             namespacePrice()
         case .namePrice:
@@ -123,7 +127,7 @@ extension ApiBrowserController
     func allNames()
     {
         BSCoreApi.allNames { (result, error) in
-            self.showResults(data: result)
+            self.showResults(object: result, error: error)
         }
     }
     
@@ -141,19 +145,19 @@ extension ApiBrowserController
     
     func namesOwned(){
         BSCoreApi.namesOwned(on: "bitcoin", for: "1Q3K7ymNVycu3TQoTDUaty8Q5fUVB3feEQ", { (result, error) in
-            self.showResults(data: result)
+            self.showResults(object: result, error: error)
         })
     }
     
     func allNamespaces(){
         BSCoreApi.allNamespaces({ (result, error) in
-            self.showResults(data: result)
+            self.showResults(object: result, error: error)
         })
     }
     
     func namespaceNames(){
         BSCoreApi.namespaceNames(namespace: "id") { (result, error) in
-            self.showResults(data: result)
+            self.showResults(object: result, error: error)
         }
     }
     
@@ -171,7 +175,7 @@ extension ApiBrowserController
     
     func consensusHash(){
         BSCoreApi.consensusHash(blockchain: "bitcoin") { (result, error) in
-            self.showResults(data: result)
+            self.showResults(object: result, error: error)
         }
     }
     
@@ -189,7 +193,7 @@ extension ApiBrowserController
     
     func search(){
         BSCoreApi.search(query: "ja") { (result, error) in
-            self.showResults(object: result, error: error)
+            self.showResults(object: String(format: "%i results", result?.results.count ?? 0) , error: error)
             print(result?.results.count ?? 0)
         }
     }

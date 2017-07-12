@@ -119,80 +119,80 @@ extension ApiBrowserController
 {
     func ping()
     {
-        BSCoreApi.ping { (result, error) in
+        CoreApi.ping { (result, error) in
             self.showResults(object: result, error: error)
         }
     }
     
     func allNames()
     {
-        BSCoreApi.allNames { (result, error) in
+        CoreApi.allNames { (result, error) in
             self.showResults(object: result, error: error)
         }
     }
     
     func nameInfo(){
-        BSCoreApi.nameInfo(for: "muneeb.id", { (result, error) in
+        CoreApi.nameInfo(for: "muneeb.id", { (result, error) in
             self.showResults(data: result)
         })
     }
     
     func zoneFile(){
-        BSCoreApi.zoneFile(for: "muneeb.id", with: "b100a68235244b012854a95f9114695679002af9", { (result, error) in
+        CoreApi.zoneFile(for: "muneeb.id", with: "b100a68235244b012854a95f9114695679002af9", { (result, error) in
             self.showResults(data: result)
         })
     }
     
     func namesOwned(){
-        BSCoreApi.namesOwned(on: "bitcoin", for: "1Q3K7ymNVycu3TQoTDUaty8Q5fUVB3feEQ", { (result, error) in
+        CoreApi.namesOwned(on: "bitcoin", for: "1Q3K7ymNVycu3TQoTDUaty8Q5fUVB3feEQ", { (result, error) in
             self.showResults(object: result, error: error)
         })
     }
     
     func allNamespaces(){
-        BSCoreApi.allNamespaces({ (result, error) in
+        CoreApi.allNamespaces({ (result, error) in
             self.showResults(object: result, error: error)
         })
     }
     
     func namespaceNames(){
-        BSCoreApi.namespaceNames(namespace: "id") { (result, error) in
+        CoreApi.namespaceNames(namespace: "id") { (result, error) in
             self.showResults(object: result, error: error)
         }
     }
     
     func namespacePrice(){
-        BSCoreApi.namespacePrice(namespace: "cnn") { (result, error) in
+        CoreApi.namespacePrice(namespace: "cnn") { (result, error) in
             self.showResults(data: result)
         }
     }
     
     func namePrice(){
-        BSCoreApi.namePrice(name: "logan.id") { (result, error) in
+        CoreApi.namePrice(name: "logan.id") { (result, error) in
             self.showResults(data: result)
         }
     }
     
     func consensusHash(){
-        BSCoreApi.consensusHash(blockchain: "bitcoin") { (result, error) in
+        CoreApi.consensusHash(blockchain: "bitcoin") { (result, error) in
             self.showResults(object: result, error: error)
         }
     }
     
     func pendingTransactions(){
-        BSCoreApi.pendingTransactions(blockchain: "bitcoin") { (result, error) in
+        CoreApi.pendingTransactions(blockchain: "bitcoin") { (result, error) in
             self.showResults(data: result)
         }
     }
     
     func userProfile(){
-        BSCoreApi.userProfile(username: "fredwilson") { (result, error) in
+        CoreApi.userProfile(username: "fredwilson") { (result, error) in
             self.showResults(object: result, error: error)
         }
     }
     
     func search(){
-        BSCoreApi.search(query: "ja") { (result, error) in
+        CoreApi.search(query: "wenger") { (result, error) in
             self.showResults(object: String(format: "%i results", result?.results.count ?? 0) , error: error)
             print(result?.results.count ?? 0)
         }

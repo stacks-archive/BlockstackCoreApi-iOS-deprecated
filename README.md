@@ -55,7 +55,7 @@ also add blockstack to your query schemes so that the app is allowed to verify b
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
     if let scheme = url.scheme, scheme.contains("bs")
     {
-        return BSBrowserAuth.application(app, open: url, options: options)
+        return BrowserAuth.application(app, open: url, options: options)
     }
     return false
 }
@@ -64,7 +64,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 4- Now, you may verify the blockstack app is installed and that authorization can be completed with:
 ```
 //verify blockstack is installed.
-guard BSBrowserAuth.canAuthorize() == true else
+guard BrowserAuth.canAuthorize() == true else
 {
     return
 }
@@ -73,7 +73,7 @@ For more info on install the portal application see: https://github.com/BedKin/B
 
 5- To call blockstack for authorization:
 ```
-BSBrowserAuth.authorize(appId: "777", name: "HelloBlockStack") { (token) in
+BrowserAuth.authorize(appId: "777", name: "HelloBlockStack") { (token) in
     if let token = token
     {
         //app authorized. Use the provided token
@@ -83,61 +83,61 @@ BSBrowserAuth.authorize(appId: "777", name: "HelloBlockStack") { (token) in
 
 ## Usage Core API
 
-The blockstack core api can be accessed via BSCoreApi
+The blockstack core api can be accessed via CoreApi
 For a listing of all the api methods and documentation see core.blockstack.org
 ```
 func ping()
 {
-    BSCoreApi.ping { (result, error) in }
+    CoreApi.ping { (result, error) in }
 }
 
 func allNames()
 {
-    BSCoreApi.allNames { (result, error) in }
+    CoreApi.allNames { (result, error) in }
 }
 
 func nameInfo(){
-    BSCoreApi.nameInfo(for: "muneeb.id", { (result, error) in })
+    CoreApi.nameInfo(for: "muneeb.id", { (result, error) in })
 }
 
 func zoneFile(){
-    BSCoreApi.zoneFile(for: "muneeb.id", with: "b100a68235244b012854a95f9114695679002af9", { (result, error) in })
+    CoreApi.zoneFile(for: "muneeb.id", with: "b100a68235244b012854a95f9114695679002af9", { (result, error) in })
 }
 
 func namesOwned(){
-    BSCoreApi.namesOwned(on: "bitcoin", for: "1Q3K7ymNVycu3TQoTDUaty8Q5fUVB3feEQ", { (result, error) in })
+    CoreApi.namesOwned(on: "bitcoin", for: "1Q3K7ymNVycu3TQoTDUaty8Q5fUVB3feEQ", { (result, error) in })
 }
 
 func allNamespaces(){
-    BSCoreApi.allNamespaces({ (result, error) in })
+    CoreApi.allNamespaces({ (result, error) in })
 }
 
 func namespaceNames(){
-    BSCoreApi.namespaceNames(namespace: "id") { (result, error) in }
+    CoreApi.namespaceNames(namespace: "id") { (result, error) in }
 }
 
 func namespacePrice(){
-    BSCoreApi.namespacePrice(namespace: "cnn") { (result, error) in }
+    CoreApi.namespacePrice(namespace: "cnn") { (result, error) in }
 }
 
 func namePrice(){
-    BSCoreApi.namePrice(name: "logan.id") { (result, error) in }
+    CoreApi.namePrice(name: "logan.id") { (result, error) in }
 }
 
 func consensusHash(){
-    BSCoreApi.consensusHash(blockchain: "bitcoin") { (result, error) in }
+    CoreApi.consensusHash(blockchain: "bitcoin") { (result, error) in }
 }
 
 func pendingTransactions(){
-    BSCoreApi.pendingTransactions(blockchain: "bitcoin") { (result, error) in }
+    CoreApi.pendingTransactions(blockchain: "bitcoin") { (result, error) in }
 }
 
 func userProfile(){
-    BSCoreApi.userProfile(username: "fredwilson") { (result, error) in }
+    CoreApi.userProfile(username: "fredwilson") { (result, error) in }
 }
 
 func search(){
-    BSCoreApi.search(query: "ja") { (result, error) in }
+    CoreApi.search(query: "ja") { (result, error) in }
 }
 ```
 

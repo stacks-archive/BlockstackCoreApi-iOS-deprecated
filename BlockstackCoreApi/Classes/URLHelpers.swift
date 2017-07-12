@@ -1,5 +1,5 @@
 //
-//  BSURLHelpers.swift
+//  URLHelpers.swift
 //  BlockstackCoreApi
 //
 //  Created by lsease on 6/23/17.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BSURLHelpers
+class URLHelpers
 {
     static func buildURL(with string: String, queryParams: [String : String]) -> URL?
     {

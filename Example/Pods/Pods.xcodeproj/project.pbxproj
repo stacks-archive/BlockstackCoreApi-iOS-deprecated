@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00417DFD1EFC59BA00F7230B /* BSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00417DFC1EFC59BA00F7230B /* BSConstants.swift */; };
-		005C5D241F015D7F00EC6808 /* BSBrowserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C5D231F015D7F00EC6808 /* BSBrowserAuth.swift */; };
-		005C5D2C1F029C8D00EC6808 /* BSApiResponseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C5D2B1F029C8D00EC6808 /* BSApiResponseTypes.swift */; };
-		007809221EFD574300CD2ED2 /* BSURLHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007809211EFD574300CD2ED2 /* BSURLHelpers.swift */; };
-		00E5BB091EFC58F00028879A /* BSEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5BB081EFC58F00028879A /* BSEndpoint.swift */; };
+		00417DFD1EFC59BA00F7230B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00417DFC1EFC59BA00F7230B /* Constants.swift */; };
+		005C5D241F015D7F00EC6808 /* BrowserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C5D231F015D7F00EC6808 /* BrowserAuth.swift */; };
+		005C5D2C1F029C8D00EC6808 /* ApiResponseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C5D2B1F029C8D00EC6808 /* ApiResponseTypes.swift */; };
+		007809221EFD574300CD2ED2 /* URLHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007809211EFD574300CD2ED2 /* URLHelpers.swift */; };
+		00E5BB091EFC58F00028879A /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5BB081EFC58F00028879A /* ApiEndpoint.swift */; };
 		0F2B7CB12C953AE185BA5E1BC9843F1D /* BlockstackCoreApi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6C02DD6121A8582406D27455FF9DA6 /* BlockstackCoreApi-dummy.m */; };
 		194E830C635E1A16C1B524CFAE21B82F /* Pods-BlockstackCoreApi_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D10B67221D4994788F29454CA004BCB9 /* Pods-BlockstackCoreApi_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B3B6C92449542740E0C5AA383057B07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
@@ -21,7 +21,7 @@
 		C8A900BE2C6676C51CF06D97C18130F4 /* BlockstackCoreApi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5195E954C72B75F2A2D31B191070E70F /* BlockstackCoreApi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEACDC35D95F3A542D4E898450303875 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		D9D4CF488EFDFEC1A707E0A3AC45A7D8 /* Pods-BlockstackCoreApi_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 83AB472BD18D142AC5D9C21A6E77F5A0 /* Pods-BlockstackCoreApi_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FD61CD14DC4E2C65D54A323A2743D653 /* BSCoreApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BCC36E9E186867A51EEF36F4A24C94 /* BSCoreApi.swift */; };
+		FD61CD14DC4E2C65D54A323A2743D653 /* CoreApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BCC36E9E186867A51EEF36F4A24C94 /* CoreApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,14 +35,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00417DFC1EFC59BA00F7230B /* BSConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSConstants.swift; sourceTree = "<group>"; };
-		005C5D231F015D7F00EC6808 /* BSBrowserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSBrowserAuth.swift; sourceTree = "<group>"; };
-		005C5D2B1F029C8D00EC6808 /* BSApiResponseTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSApiResponseTypes.swift; sourceTree = "<group>"; };
-		007809211EFD574300CD2ED2 /* BSURLHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSURLHelpers.swift; sourceTree = "<group>"; };
-		00E5BB081EFC58F00028879A /* BSEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BSEndpoint.swift; sourceTree = "<group>"; };
+		00417DFC1EFC59BA00F7230B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		005C5D231F015D7F00EC6808 /* BrowserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserAuth.swift; sourceTree = "<group>"; };
+		005C5D2B1F029C8D00EC6808 /* ApiResponseTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseTypes.swift; sourceTree = "<group>"; };
+		007809211EFD574300CD2ED2 /* URLHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelpers.swift; sourceTree = "<group>"; };
+		00E5BB081EFC58F00028879A /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
 		0D45B064010ADEF095E66E0520948C41 /* Pods-BlockstackCoreApi_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BlockstackCoreApi_Example-resources.sh"; sourceTree = "<group>"; };
 		154CC253ED0DC7F8D714B671FD658BE2 /* Pods_BlockstackCoreApi_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockstackCoreApi_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		19BCC36E9E186867A51EEF36F4A24C94 /* BSCoreApi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BSCoreApi.swift; sourceTree = "<group>"; };
+		19BCC36E9E186867A51EEF36F4A24C94 /* CoreApi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreApi.swift; sourceTree = "<group>"; };
 		1CFC7AEE9C4D33E3619CA6463BE9D28D /* Pods-BlockstackCoreApi_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BlockstackCoreApi_Example.release.xcconfig"; sourceTree = "<group>"; };
 		252091A959CE1EFECDD7E2AAE4635E2D /* BlockstackCoreApi-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BlockstackCoreApi-prefix.pch"; sourceTree = "<group>"; };
 		36D4CF0C7938E94502AD0FDE6504EA69 /* Pods-BlockstackCoreApi_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BlockstackCoreApi_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -189,12 +189,12 @@
 		C91B13BDBC94A85773F12E92E0910363 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				19BCC36E9E186867A51EEF36F4A24C94 /* BSCoreApi.swift */,
-				00E5BB081EFC58F00028879A /* BSEndpoint.swift */,
-				00417DFC1EFC59BA00F7230B /* BSConstants.swift */,
-				007809211EFD574300CD2ED2 /* BSURLHelpers.swift */,
-				005C5D231F015D7F00EC6808 /* BSBrowserAuth.swift */,
-				005C5D2B1F029C8D00EC6808 /* BSApiResponseTypes.swift */,
+				19BCC36E9E186867A51EEF36F4A24C94 /* CoreApi.swift */,
+				00E5BB081EFC58F00028879A /* ApiEndpoint.swift */,
+				00417DFC1EFC59BA00F7230B /* Constants.swift */,
+				007809211EFD574300CD2ED2 /* URLHelpers.swift */,
+				005C5D231F015D7F00EC6808 /* BrowserAuth.swift */,
+				005C5D2B1F029C8D00EC6808 /* ApiResponseTypes.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -373,13 +373,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E5BB091EFC58F00028879A /* BSEndpoint.swift in Sources */,
-				007809221EFD574300CD2ED2 /* BSURLHelpers.swift in Sources */,
+				00E5BB091EFC58F00028879A /* ApiEndpoint.swift in Sources */,
+				007809221EFD574300CD2ED2 /* URLHelpers.swift in Sources */,
 				0F2B7CB12C953AE185BA5E1BC9843F1D /* BlockstackCoreApi-dummy.m in Sources */,
-				005C5D2C1F029C8D00EC6808 /* BSApiResponseTypes.swift in Sources */,
-				005C5D241F015D7F00EC6808 /* BSBrowserAuth.swift in Sources */,
-				00417DFD1EFC59BA00F7230B /* BSConstants.swift in Sources */,
-				FD61CD14DC4E2C65D54A323A2743D653 /* BSCoreApi.swift in Sources */,
+				005C5D2C1F029C8D00EC6808 /* ApiResponseTypes.swift in Sources */,
+				005C5D241F015D7F00EC6808 /* BrowserAuth.swift in Sources */,
+				00417DFD1EFC59BA00F7230B /* Constants.swift in Sources */,
+				FD61CD14DC4E2C65D54A323A2743D653 /* CoreApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

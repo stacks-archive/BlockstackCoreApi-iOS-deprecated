@@ -1,5 +1,5 @@
 //
-//  BSApiResponseTypes.swift
+//  ApiResponseTypes.swift
 //  BlockstackCoreApi
 //
 //  Created by lsease on 6/27/17.
@@ -13,55 +13,61 @@
 import Foundation
 
 //MARK: ping
-public struct BSPingResponse : Serializable
+public struct PingResponse : Serializable
 {
     public var status : String
     public var version : String
 }
 
 //MARK: search
-public struct BSSearchResponse : Serializable
+public struct SearchResponse : Serializable
 {
-    public var results : [BSOneNameSearchResult]
+    public var results : [SearchResult]
     
-    public struct BSSearchResult : Serializable
+    public struct SearchResult : Serializable
     {
-        public var profile : BSProfile
+        public var profile : Profile
     }
     
-    public struct BSOneNameSearchResult : Serializable
+}
+
+public struct OneNameSearchResponse : Serializable
+{
+    public var results : [OneNameSearchResult]
+    
+    public struct OneNameSearchResult : Serializable
     {
-        public var profile : BSOneNameProfile?
+        public var profile : OneNameProfile?
         public var username : String?
     }
 }
 
-public struct BSOneNameProfile: Serializable
+public struct OneNameProfile: Serializable
 {
-    public var avatar : BSUrlContainer?
+    public var avatar : UrlContainer?
     public var bio : String?
-    public var bitcoin : BSAddressContainer?
-    public var cover : BSUrlContainer?
-    public var location : BSFormatContainer?
-    public var name : BSFormatContainer?
+    public var bitcoin : AddressContainer?
+    public var cover : UrlContainer?
+    public var location : FormatContainer?
+    public var name : FormatContainer?
     public var website : String?
 }
 
 
 
-public struct BSProfile : Serializable
+public struct Profile : Serializable
 {
-    public var account : [BSAccount]
-    public var address : BSAddress
+    public var account : [Account]
+    public var address : Address
     public var description : String
     
-    public struct BSAddress : Serializable
+    public struct Address : Serializable
     {
         public var addressLocality : String
     }
 }
 
-public struct BSAccount : Serializable
+public struct Account : Serializable
 {
     public var identifier : String
     public var service : String
@@ -71,23 +77,23 @@ public struct BSAccount : Serializable
 }
 
 //MARK: Profile
-public struct BSProfileResponse : Serializable
+public struct ProfileResponse : Serializable
 {
-    public var profile : BSProfile
+    public var profile : Profile
     
-    public struct BSProfile : Serializable
+    public struct Profile : Serializable
     {
-        public var account : [BSAccount]
+        public var account : [Account]
         public var description : String
-        public var address : BSAddress
-        public var image : [BSImage]
+        public var address : Address
+        public var image : [Image]
         
-        public struct BSAddress : Serializable
+        public struct Address : Serializable
         {
             public var addressLocality : String
         }
         
-        public struct BSImage : Serializable
+        public struct Image : Serializable
         {
             public var contentUrl : String
             public var name : String
@@ -95,16 +101,16 @@ public struct BSProfileResponse : Serializable
     }
 }
 
-public struct BSUrlContainer : Serializable{
+public struct UrlContainer : Serializable{
     public var url : String?
 }
 
-public struct BSAddressContainer : Serializable
+public struct AddressContainer : Serializable
 {
     public var address : String?
 }
 
-public struct BSFormatContainer : Serializable
+public struct FormatContainer : Serializable
 {
     public var formatted : String?
 }

@@ -14,14 +14,14 @@ class MainViewController: UIViewController {
     @IBAction func authorize()
     {
         //verify blockstack is installed.
-        guard (BSBrowserAuth.canAuthorize() == true) else
+        guard (BrowserAuth.canAuthorize() == true) else
         {
             return
         }
         
         //perform an authorization with a random ID and the app name.
         //alert the user of the result
-        BSBrowserAuth.authorize(appId: "777", name: "HelloBlockStack") { (token) in
+        BrowserAuth.authorize(appId: "777", name: "HelloBlockStack") { (token) in
                 if let token = token
                 {
                     let alert = UIAlertController(title: "Authorization Successful", message: "Blockstack access granted with Token:\n\(token)", preferredStyle: .alert)

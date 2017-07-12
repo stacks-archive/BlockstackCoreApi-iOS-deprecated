@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0053ED171F0158A100E039E1 /* ApiBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053ED161F0158A100E039E1 /* ApiBrowserController.swift */; };
-		005C5D371F02DD8600EC6808 /* OutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C5D361F02DD8600EC6808 /* OutlineButton.swift */; };
 		008A13561F0403BD00C46D5F /* bs-background-blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 008A13551F0402C700C46D5F /* bs-background-blur.png */; };
 		008A13571F0403BF00C46D5F /* bs-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 008A13541F0402C700C46D5F /* bs-background.png */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -33,7 +32,7 @@
 
 /* Begin PBXFileReference section */
 		0053ED161F0158A100E039E1 /* ApiBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiBrowserController.swift; sourceTree = "<group>"; };
-		005C5D361F02DD8600EC6808 /* OutlineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutlineButton.swift; path = ../../../../../Desktop/OutlineButton.swift; sourceTree = "<group>"; };
+		006DCFD01F1678D90037191E /* OutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlineButton.swift; sourceTree = "<group>"; };
 		008A13541F0402C700C46D5F /* bs-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bs-background.png"; sourceTree = "<group>"; };
 		008A13551F0402C700C46D5F /* bs-background-blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bs-background-blur.png"; sourceTree = "<group>"; };
 		22D8858959EFAFBFF26A1676 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -111,10 +110,10 @@
 		607FACD21AFB9204008FA782 /* Example for BlockstackCoreApi */ = {
 			isa = PBXGroup;
 			children = (
-				005C5D361F02DD8600EC6808 /* OutlineButton.swift */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* MainViewController.swift */,
 				0053ED161F0158A100E039E1 /* ApiBrowserController.swift */,
+				006DCFD01F1678D90037191E /* OutlineButton.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				005C5D311F02DBC500EC6808 /* Images */,
@@ -385,7 +384,6 @@
 			files = (
 				607FACD81AFB9204008FA782 /* MainViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
-				005C5D371F02DD8600EC6808 /* OutlineButton.swift in Sources */,
 				0053ED171F0158A100E039E1 /* ApiBrowserController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,14 +1,14 @@
 //
-//  BSEndpoint.swift
+//  Endpoint.swift
 //  BlockstackCoreApi
 //
 //  Created by lsease on 6/22/17.
 //  This file defines the endpoints that are called in the core api
 
 
-struct BSEndpoint
+struct Endpoint
 {
-    static let BasePath = "\(BSConstants.ServerRoot)/\(BSConstants.ServerPathPrefix)"
+    static let BasePath = "\(Constants.ServerRoot)/\(Constants.ServerPathPrefix)"
     static let PathDelimiter = "/"
     
     struct Subpath
@@ -94,12 +94,13 @@ struct BSEndpoint
     
     static func userPath(user: String) -> String
     {
-        let basePath = "\(BSConstants.ServerRoot)/v2"
+        let basePath = "\(Constants.ServerRoot)/v2"
         return basePath + Subpath.users + PathDelimiter + user
     }
     
     static func searchPath() -> String
     {
-        return "https://api.blockstack.com/v1" + Subpath.search
+        return BasePath + Subpath.search
+        //return "https://api.blockstack.com/v1" + Subpath.search
     }
 }

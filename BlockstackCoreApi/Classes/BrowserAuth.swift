@@ -1,5 +1,5 @@
 //
-//  BSBrowserAuth.swift
+//  BrowserAuth.swift
 //  BlockstackCoreApi
 //
 //  Created by lsease on 6/26/17.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class BSBrowserAuth: NSObject {
+public class BrowserAuth: NSObject {
     
     static var responseHandler : ((String?) -> Void)?
     

@@ -14,6 +14,7 @@
 		006DCFD51F17BFCE0037191E /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006DCFD41F17BFCE0037191E /* String+Base64.swift */; };
 		006DCFD71F17C04F0037191E /* StringDictionary+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006DCFD61F17C04F0037191E /* StringDictionary+Json.swift */; };
 		006DCFD91F17CCA60037191E /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006DCFD81F17CCA60037191E /* Serializable.swift */; };
+		006DCFDB1F17F2E30037191E /* String+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006DCFDA1F17F2E30037191E /* String+Subscript.swift */; };
 		007809221EFD574300CD2ED2 /* URLHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007809211EFD574300CD2ED2 /* URLHelpers.swift */; };
 		00E5BB091EFC58F00028879A /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5BB081EFC58F00028879A /* ApiEndpoint.swift */; };
 		0F2B7CB12C953AE185BA5E1BC9843F1D /* BlockstackCoreApi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6C02DD6121A8582406D27455FF9DA6 /* BlockstackCoreApi-dummy.m */; };
@@ -47,6 +48,7 @@
 		006DCFD41F17BFCE0037191E /* String+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64.swift"; sourceTree = "<group>"; };
 		006DCFD61F17C04F0037191E /* StringDictionary+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringDictionary+Json.swift"; sourceTree = "<group>"; };
 		006DCFD81F17CCA60037191E /* Serializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		006DCFDA1F17F2E30037191E /* String+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Subscript.swift"; sourceTree = "<group>"; };
 		007809211EFD574300CD2ED2 /* URLHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelpers.swift; sourceTree = "<group>"; };
 		00E5BB081EFC58F00028879A /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
 		0D45B064010ADEF095E66E0520948C41 /* Pods-BlockstackCoreApi_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BlockstackCoreApi_Example-resources.sh"; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				006DCFD61F17C04F0037191E /* StringDictionary+Json.swift */,
 				006DCFD81F17CCA60037191E /* Serializable.swift */,
 				006DCFD11F1684800037191E /* AuthFlowDoc.txt */,
+				006DCFDA1F17F2E30037191E /* String+Subscript.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				005C5D2C1F029C8D00EC6808 /* ApiResponseTypes.swift in Sources */,
 				006DCFD51F17BFCE0037191E /* String+Base64.swift in Sources */,
 				005C5D241F015D7F00EC6808 /* BrowserAuth.swift in Sources */,
+				006DCFDB1F17F2E30037191E /* String+Subscript.swift in Sources */,
 				006DCFD91F17CCA60037191E /* Serializable.swift in Sources */,
 				006DCFD71F17C04F0037191E /* StringDictionary+Json.swift in Sources */,
 				006DCFD31F17BF150037191E /* TokenSigner.swift in Sources */,

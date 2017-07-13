@@ -1,0 +1,247 @@
+This is an attempt to document the auth flow found throughout blockstack.js and
+blockstack core
+
+sign in button:
+calls Redirect to sign in
+- default redirect url: window.location.origin/
+- default manifest uri: origin/manifest.json
+- default scopes : ['store_write']
+=== NOTE: Manifest values will need to be passed in to the app
+=== temp work around store manifest on computer
+
+REDIRECT TO SIGN IN authApp.js
+makes an auth request (generateAndStoreAppKey, redirect and manifest uri)
+--- generates a private key via makeECPrivateKey and writes to local storage
+
+MAKE AUTH REQUEST
+constructs a payload with a uuid, some time variables, some URIs and a domain
+if a private key is passed in, the token is signed via:
+- deriving public key, adding to payload with SECP256K1Client
+- convert to address
+- make DID from address (store in iss of payload)
+- sign private key with Token Signer
+
+REDIRECT USER TO SIGN IN WITH AUTH REQUEST authApp.js, called by redirect to sign in
+sign in button passes request payload to authApp.js redirectUserToSignIn
+composes an auth request URI
+calls protocolCheck, a 3rd party framework
+passes in protocol UI and some fallbacks.
+if it fails, it opens the web to install the app passing in the request (i guess to call later)
+blockstack:payload
+
+BLOCKSTACK APP
+has registered blockstack: uri schema and intercepts
+opens brower to https://localhost:8000/auth?authRequest=payload
+
+BLOCKSTACK CORE
+logs in user, calls callback URI
+https://domain/auth?authResponse=payload
+
+NATIVE APP
+launches native app through call back URL runs custom code which should:
+check to see if a sign in is pending by looking for the authResponse url param
+if it is found, then call blockstack.handlePendingSignIn
+
+HANDLE PENDING SIGN IN - authApp.JS
+get response token from the url
+verify the auth response
+-isExpirationDateValid(token)
+-isIssuanceDateValid(token)
+-doSignaturesMatchPublicKeys(token)
+-doPublicKeysMatchIssuer(token)
+if it is valid, decode the token
+- in blockstack/jsontokens-js lib
+- split the token into 3 parts by a .
+- call base64url lib to decode each part
+- return an object with header, payload, signature
+
+from the decoded payload make a userData object containing
+- username, profile, private key, core token and auth response token
+set the userData into window / local storage as JSON (cookie?)
+pass the userData to the native app
+
+
+
+
+
+
+APPENDIX:
+makeECPrivateKey()
+const keyPair = new ECPair.makeRandom({ rng: getEntropy })
+return keyPair.d.toBuffer(32).toString('hex')
+
+
+
+example login payload: eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJqdGkiOiJhZWRjNmEyMy1hYmU1LTQzOTgtOTE3Zi1hNjFlZmM2ZTAxMWIiLCJpYXQiOjE0OTk4ODI4MTEsImV4cCI6MTQ5OTg4NjQxMSwiaXNzIjoiZGlkOmJ0Yy1hZGRyOjE4QWV3VFB0NkNVbWp4NXUxUVVxYTdHa0s1ZWZjaVlKZjIiLCJwdWJsaWNfa2V5cyI6WyIwMmY4MWViNmUyMWY4NjYxNmU5N2M2MDIzMjQ4MDRmMzkyY2Q3ZWM1NDJkMDBjMTg4NTM4NDM4ZDBlMzEzYzIwYjUiXSwiZG9tYWluX25hbWUiOiJodHRwOi8vbG9jYWxob3N0OjMwMDAiLCJtYW5pZmVzdF91cmkiOiJodHRwczovL3MzLmFtYXpvbmF3cy5jb20vY2FzYS13ZWIvbWFuaWZlc3QuanNvbiIsInJlZGlyZWN0X3VyaSI6Imh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9ob21lcyIsInNjb3BlcyI6WyJzdG9yZV93cml0ZSJdfQ.aAX6xAvtvn4EFV4HOM09G5ooRVD6C-W-IVcceVPcLmsZiY85SLM8_DsLE843_DcJgPXLNVimxpUJ0aukB8GnoA
+
+example login response:
+eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJqdGkiOiIxOTBjYjE0Ny1hNWEzLTRlOGMtOWQ5Yy1lZTkwYzU4Y2FlMWEiLCJpYXQiOjE0OTk4ODI4OTQsImV4cCI6MTUwMjU2MTI5NCwiaXNzIjoiZGlkOmJ0Yy1hZGRyOjE5SjdkYzVBWGFjdHpiM1ZOM29Sa3dwRjJ1ODFrM1N3WXoiLCJwcml2YXRlX2tleSI6ImUzNDZhY2JmNjQwMTM5NGQ4N2JmOTg2ZmNjOTUzNmVkZjM5NzVmN2Y2YmZmNGVhZjFkNGNiMWE3NzM4ZjgzMzAiLCJwdWJsaWNfa2V5cyI6WyIwM2MxZjUwNmRiNzI3NmJmOTY3MWUzMzU5OTI2ZDg1MjBjMTM0MDg3YWNhYjA0Y2Y0ZDY1OGVkNzIxMTgzY2NiMjciXSwicHJvZmlsZSI6eyJAdHlwZSI6IlBlcnNvbiIsIkBjb250ZXh0IjoiaHR0cDovL3NjaGVtYS5vcmciLCJhY2NvdW50IjpbeyJpZGVudGlmaWVyIjoic3RvcmFnZSIsInNlcnZpY2UiOiJkcm9wYm94IiwiY29udGVudFVybCI6Imh0dHBzOi8vd3d3LmRyb3Bib3guY29tL3MvNGh6NjdwbzZjazRkaDNnL2luZGV4Lm1hbmlmZXN0P2RsPTEifV0sImdpdmVuTmFtZSI6IlNjb3R0IiwiZmFtaWx5TmFtZSI6Ik1hcnRpbiIsImRlc2NyaXB0aW9uIjoiIiwiaW1hZ2UiOlt7IkB0eXBlIjoiSW1hZ2VPYmplY3QiLCJuYW1lIjoiYXZhdGFyIiwiY29udGVudFVybCI6IiJ9XSwiYWRkcmVzcyI6eyJAdHlwZSI6IlBvc3RhbEFkZHJlc3MiLCJhZGRyZXNzTG9jYWxpdHkiOiJDaGFybGVzdG9uLCBTQyIsImFkZHJlc3NDb3VudHJ5IjoiVVNBIn19LCJ1c2VybmFtZSI6InNjb3R0eTQ1NjcuaWQiLCJjb3JlX3Rva2VuIjoiZXlKaGJHY2lPaUpGVXpJMU5rc2lMQ0owZVhBaU9pSktWMVFpZlEuZXlKaGNIQmZaRzl0WVdsdUlqb2lhSFIwY0RvdkwyeHZZMkZzYUc5emREb3pNREF3SWl3aWJXVjBhRzlrY3lJNld5SnpkRzl5WlY5M2NtbDBaU0pkTENKMGFXMWxjM1JoYlhBaU9qRTBPVGs0T0RJNE9UUXNJbVY0Y0dseVpYTWlPakUxTURBME9EYzJPVFFzSW1Gd2NGOTFjMlZ5WDJsa0lqb2lNVVExY0ZkVWVFSndRemhIVmpaU1ptWktlSGRNZEdGcVYyWmlVSEJMYTNCb1F5SXNJbVJsZG1salpWOXBaQ0k2SWpBaUxDSmliRzlqYTJOb1lXbHVYMmxrSWpvaWMyTnZkSFI1TkRVMk55NXBaQ0lzSW5OMGIzSmhaMlVpT25zaVkyeGhjM05sY3lJNmV5SjNjbWwwWlY5d2NtbDJZWFJsSWpwYkltUnBjMnNpTENKa2NtOXdZbTk0SWl3aWN6TWlMQ0ppYkc5amEzTjBZV05yWDNObGNuWmxjaUlzSW1Sb2RDSmRMQ0p5WldGa1gyeHZZMkZzSWpwYkltUnBjMnNpWFN3aWNtVmhaRjl3ZFdKc2FXTWlPbHNpWkhKdmNHSnZlQ0lzSW5Neklpd2lZbXh2WTJ0emRHRmphMTl5WlhOdmJIWmxjaUlzSW1Kc2IyTnJjM1JoWTJ0ZmMyVnlkbVZ5SWl3aWFIUjBjQ0lzSW1Sb2RDSmRMQ0ozY21sMFpWOXNiMk5oYkNJNld5SmthWE5ySWwwc0luZHlhWFJsWDNCMVlteHBZeUk2VzEwc0luSmxZV1JmY0hKcGRtRjBaU0k2V3lKa2FYTnJJbDE5TENKd2NtVm1aWEpsYm1ObGN5STZlMzE5TENKaGNHbGZaVzVrY0c5cGJuUWlPaUpzYjJOaGJHaHZjM1E2TmpJM01DSXNJbUZ3Y0Y5d2RXSnNhV05mYTJWNWN5STZXM3NpY0hWaWJHbGpYMnRsZVNJNklqQXpaamt5TlRrNE9USmhaRFppTW1JME5URXlNamRpWWpZME5UUmpaakEyWm1NMVl6SXhObVl6WVdZelpXRTFOakl5WkRRMFlXUTNZamc0WXpka1ltRTNOaUlzSW1SbGRtbGpaVjlwWkNJNklqQWlmVjBzSW5abGNuTnBiMjRpT2pGOS5zWmN4R3hSMHV1VzF3d3lfaW9Wd3VKSm9oVUxNMWtXR3RhOVJOVWRXUGstampvV3JDR3FFbk8wWWNpNWJleEpSM0R1bFctRE02TUpmWDVZU09lczJDdyJ9.NAvqxgJyU6P_vdCgVp-Am33rVKPo2xVXffHSmK4sV5y3h0uXg633xcsMzWzjsSuCVHNMEInQkE25mrv6s9ZfZA
+
+
+example decoded response:
+{
+"username": "scotty4567.id",
+"profile": {
+"@type": "Person",
+"@context": "http://schema.org",
+"account": [
+{
+"identifier": "storage",
+"service": "dropbox",
+"contentUrl": "https://www.dropbox.com/s/4hz67po6ck4dh3g/index.manifest?dl=1"
+}
+],
+"givenName": "Scott",
+"familyName": "Martin",
+"description": "",
+"image": [
+{
+"@type": "ImageObject",
+"name": "avatar",
+"contentUrl": ""
+}
+],
+"address": {
+"@type": "PostalAddress",
+"addressLocality": "Charleston, SC",
+"addressCountry": "USA"
+}
+},
+"appPrivateKey": "e346acbf6401394d87bf986fcc9536edf3975f7f6bff4eaf1d4cb1a7738f8330",
+"coreSessionToken": "eyJhbGciOiJFUzI1NksiLCJ0eXAiOiJKV1QifQ.eyJhcHBfZG9tYWluIjoiaHR0cDovL2xvY2FsaG9zdDozMDAwIiwibWV0aG9kcyI6WyJzdG9yZV93cml0ZSJdLCJ0aW1lc3RhbXAiOjE0OTk4ODM3MzQsImV4cGlyZXMiOjE1MDA0ODg1MzQsImFwcF91c2VyX2lkIjoiMUQ1cFdUeEJwQzhHVjZSZmZKeHdMdGFqV2ZiUHBLa3BoQyIsImRldmljZV9pZCI6IjAiLCJibG9ja2NoYWluX2lkIjoic2NvdHR5NDU2Ny5pZCIsInN0b3JhZ2UiOnsiY2xhc3NlcyI6eyJ3cml0ZV9wcml2YXRlIjpbImRpc2siLCJkcm9wYm94IiwiczMiLCJibG9ja3N0YWNrX3NlcnZlciIsImRodCJdLCJyZWFkX2xvY2FsIjpbImRpc2siXSwicmVhZF9wdWJsaWMiOlsiZHJvcGJveCIsInMzIiwiYmxvY2tzdGFja19yZXNvbHZlciIsImJsb2Nrc3RhY2tfc2VydmVyIiwiaHR0cCIsImRodCJdLCJ3cml0ZV9sb2NhbCI6WyJkaXNrIl0sIndyaXRlX3B1YmxpYyI6W10sInJlYWRfcHJpdmF0ZSI6WyJkaXNrIl19LCJwcmVmZXJlbmNlcyI6e319LCJhcGlfZW5kcG9pbnQiOiJsb2NhbGhvc3Q6NjI3MCIsImFwcF9wdWJsaWNfa2V5cyI6W3sicHVibGljX2tleSI6IjAzZjkyNTk4OTJhZDZiMmI0NTEyMjdiYjY0NTRjZjA2ZmM1YzIxNmYzYWYzZWE1NjIyZDQ0YWQ3Yjg4YzdkYmE3NiIsImRldmljZV9pZCI6IjAifV0sInZlcnNpb24iOjF9._N8oEjt_cGth7J6J3IgjcI1Vq2XpKks4GOMVoQ-ehkJyCCJmQ2xclRErgC6fzBsaz43WMqGIGjaF5MN-KURN7w",
+"authResponseToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJqdGkiOiI0YmVjZWRlMC04NmVjLTRjM2ItOWY3MC1lOGMzNDE2ZDcwMDUiLCJpYXQiOjE0OTk4ODM3MzQsImV4cCI6MTUwMjU2MjEzNCwiaXNzIjoiZGlkOmJ0Yy1hZGRyOjE5SjdkYzVBWGFjdHpiM1ZOM29Sa3dwRjJ1ODFrM1N3WXoiLCJwcml2YXRlX2tleSI6ImUzNDZhY2JmNjQwMTM5NGQ4N2JmOTg2ZmNjOTUzNmVkZjM5NzVmN2Y2YmZmNGVhZjFkNGNiMWE3NzM4ZjgzMzAiLCJwdWJsaWNfa2V5cyI6WyIwM2MxZjUwNmRiNzI3NmJmOTY3MWUzMzU5OTI2ZDg1MjBjMTM0MDg3YWNhYjA0Y2Y0ZDY1OGVkNzIxMTgzY2NiMjciXSwicHJvZmlsZSI6eyJAdHlwZSI6IlBlcnNvbiIsIkBjb250ZXh0IjoiaHR0cDovL3NjaGVtYS5vcmciLCJhY2NvdW50IjpbeyJpZGVudGlmaWVyIjoic3RvcmFnZSIsInNlcnZpY2UiOiJkcm9wYm94IiwiY29udGVudFVybCI6Imh0dHBzOi8vd3d3LmRyb3Bib3guY29tL3MvNGh6NjdwbzZjazRkaDNnL2luZGV4Lm1hbmlmZXN0P2RsPTEifV0sImdpdmVuTmFtZSI6IlNjb3R0IiwiZmFtaWx5TmFtZSI6Ik1hcnRpbiIsImRlc2NyaXB0aW9uIjoiIiwiaW1hZ2UiOlt7IkB0eXBlIjoiSW1hZ2VPYmplY3QiLCJuYW1lIjoiYXZhdGFyIiwiY29udGVudFVybCI6IiJ9XSwiYWRkcmVzcyI6eyJAdHlwZSI6IlBvc3RhbEFkZHJlc3MiLCJhZGRyZXNzTG9jYWxpdHkiOiJDaGFybGVzdG9uLCBTQyIsImFkZHJlc3NDb3VudHJ5IjoiVVNBIn19LCJ1c2VybmFtZSI6InNjb3R0eTQ1NjcuaWQiLCJjb3JlX3Rva2VuIjoiZXlKaGJHY2lPaUpGVXpJMU5rc2lMQ0owZVhBaU9pSktWMVFpZlEuZXlKaGNIQmZaRzl0WVdsdUlqb2lhSFIwY0RvdkwyeHZZMkZzYUc5emREb3pNREF3SWl3aWJXVjBhRzlrY3lJNld5SnpkRzl5WlY5M2NtbDBaU0pkTENKMGFXMWxjM1JoYlhBaU9qRTBPVGs0T0RNM016UXNJbVY0Y0dseVpYTWlPakUxTURBME9EZzFNelFzSW1Gd2NGOTFjMlZ5WDJsa0lqb2lNVVExY0ZkVWVFSndRemhIVmpaU1ptWktlSGRNZEdGcVYyWmlVSEJMYTNCb1F5SXNJbVJsZG1salpWOXBaQ0k2SWpBaUxDSmliRzlqYTJOb1lXbHVYMmxrSWpvaWMyTnZkSFI1TkRVMk55NXBaQ0lzSW5OMGIzSmhaMlVpT25zaVkyeGhjM05sY3lJNmV5SjNjbWwwWlY5d2NtbDJZWFJsSWpwYkltUnBjMnNpTENKa2NtOXdZbTk0SWl3aWN6TWlMQ0ppYkc5amEzTjBZV05yWDNObGNuWmxjaUlzSW1Sb2RDSmRMQ0p5WldGa1gyeHZZMkZzSWpwYkltUnBjMnNpWFN3aWNtVmhaRjl3ZFdKc2FXTWlPbHNpWkhKdmNHSnZlQ0lzSW5Neklpd2lZbXh2WTJ0emRHRmphMTl5WlhOdmJIWmxjaUlzSW1Kc2IyTnJjM1JoWTJ0ZmMyVnlkbVZ5SWl3aWFIUjBjQ0lzSW1Sb2RDSmRMQ0ozY21sMFpWOXNiMk5oYkNJNld5SmthWE5ySWwwc0luZHlhWFJsWDNCMVlteHBZeUk2VzEwc0luSmxZV1JmY0hKcGRtRjBaU0k2V3lKa2FYTnJJbDE5TENKd2NtVm1aWEpsYm1ObGN5STZlMzE5TENKaGNHbGZaVzVrY0c5cGJuUWlPaUpzYjJOaGJHaHZjM1E2TmpJM01DSXNJbUZ3Y0Y5d2RXSnNhV05mYTJWNWN5STZXM3NpY0hWaWJHbGpYMnRsZVNJNklqQXpaamt5TlRrNE9USmhaRFppTW1JME5URXlNamRpWWpZME5UUmpaakEyWm1NMVl6SXhObVl6WVdZelpXRTFOakl5WkRRMFlXUTNZamc0WXpka1ltRTNOaUlzSW1SbGRtbGpaVjlwWkNJNklqQWlmVjBzSW5abGNuTnBiMjRpT2pGOS5fTjhvRWp0X2NHdGg3SjZKM0lnamNJMVZxMlhwS2tzNEdPTVZvUS1laGtKeUNDSm1RMnhjbFJFcmdDNmZ6QnNhejQzV01xR0lHamFGNU1OLUtVUk43dyJ9.0Gfx_rQeqUSTbYaY174Vns0k3nPHRxXuohh7VygJZq0MwLITiUK4wkWkaV9KYtDHxiiIAJJtaPEFcsj29ZJvWQ"
+}"
+
+
+
+example app manifest file
+
+{
+"short_name": "React App",
+"name": "Create React App Sample",
+"icons": [
+{
+"src": "favicon.ico",
+"sizes": "192x192",
+"type": "image/png"
+}
+],
+"start_url": "./index.html",
+"display": "standalone",
+"theme_color": "#000000",
+"background_color": "#ffffff"
+}
+
+
+Unsigned auth request payload:
+const payload = {
+jti: makeUUID4(),
+iat: Math.floor(new Date().getTime() / 1000), // JWT times are in seconds
+exp: Math.floor(expiresAt / 1000), // JWT times are in seconds
+iss: [makeDIDFromAddress(publicKeyToAddress(derivedPublicKey))],
+public_keys: [derivedPublicKey(privateKey)],
+domain_name: appDomain,
+manifest_uri: manifestURI,
+redirect_uri: redirectURI,
+scopes
+}
+
+
+
+
+
+
+export function makeAuthResponse(privateKey: string,
+profile: {} = {},
+username: ?string = null,
+coreToken: ?string = null,
+appPrivateKey: ?string = null,
+expiresAt: number = nextMonth().getTime()): string {
+/* Convert the private key to a public key to an issuer */
+const publicKey = SECP256K1Client.derivePublicKey(privateKey)
+const address = publicKeyToAddress(publicKey)
+
+/* Create the payload */
+const payload = {
+jti: makeUUID4(),
+iat: Math.floor(new Date().getTime() / 1000), // JWT times are in seconds
+exp: Math.floor(expiresAt / 1000), // JWT times are in seconds
+iss: makeDIDFromAddress(address),
+private_key: appPrivateKey,
+public_keys: [publicKey],
+profile,
+username,
+core_token: coreToken
+}
+
+/* Sign and return the token */
+const tokenSigner = new TokenSigner('ES256k', privateKey)
+return tokenSigner.sign(payload)
+}
+
+
+
+
+Token Signer- part of jsontokens-js signer.js
+
+function createSigningInput(payload, header) {
+let tokenParts = []
+
+// add in the header
+const encodedHeader = base64url.encode(JSON.stringify(header))
+tokenParts.push(encodedHeader)
+
+// add in the payload
+const encodedPayload = base64url.encode(JSON.stringify(payload))
+tokenParts.push(encodedPayload)
+
+// prepare the message
+const signingInput = tokenParts.join('.')
+
+// return the signing input
+return signingInput
+}
+
+export function createUnsecuredToken(payload) {
+const header = {typ: 'JWT', alg: 'none'}
+return createSigningInput(payload, header) + '.'
+}
+
+export class TokenSigner {
+constructor(signingAlgorithm, rawPrivateKey) {
+if (!(signingAlgorithm && rawPrivateKey)) {
+throw new MissingParametersError(
+'a signing algorithm and private key are required')
+}
+if (typeof signingAlgorithm !== 'string') {
+throw 'signing algorithm parameter must be a string'
+}
+signingAlgorithm = signingAlgorithm.toUpperCase()
+if (!cryptoClients.hasOwnProperty(signingAlgorithm)) {
+throw 'invalid signing algorithm'
+}
+this.tokenType = 'JWT'
+this.cryptoClient = cryptoClients[signingAlgorithm]
+this.rawPrivateKey = rawPrivateKey
+}
+
+header() {
+return {typ: this.tokenType, alg: this.cryptoClient.algorithmName}
+}
+
+sign(payload) {
+// prepare the message to be signed
+const signingInput = createSigningInput(payload, this.header())
+const signingInputHash = this.cryptoClient.createHash(signingInput)
+
+// sign the message and add in the signature
+const signature = this.cryptoClient.signHash(
+signingInputHash, this.rawPrivateKey)
+
+// return the token
+return [signingInput, signature].join('.')
+}
+}
+
+
+

@@ -25,21 +25,24 @@ pod "BlockstackCoreApi-iOS"
 ```
 
 ## Usage - Authorization
-1- create a unique app id for your blockstack app, such as 910412354
-2- in your info.plist, you must add the following entry allowing the blockstack app to open your application after authorization
+1- create a unique custom url schema for your app to handle auth callbacks from blockstack.
+In your info.plist, you must add the following entry allowing the blockstack app to open your application after authorization.
+You must also add a blockstack callback url parameter.
 ```
 <key>CFBundleURLTypes</key>
 <array>
     <dict>
     <key>CFBundleURLSchemes</key>
     <array>
-        <string>bs910412354</string>
+        <string>bsk[UNIQUEIDENTIFIER]</string>
     </array>
     </dict>
 </array>
+<key>BlockstackCompletionUri</key>
+<string>bsk[UNIQUEIDENTIFIER]://auth</string>
 ```
 
-also add blockstack to your query schemes so that the app is allowed to verify blockstack is installed
+2-  add blockstack to your query schemes so that the app is allowed to verify blockstack is installed
 ```
 <key>LSApplicationQueriesSchemes</key>
 <array>
@@ -53,7 +56,7 @@ also add blockstack to your query schemes so that the app is allowed to verify b
 ```
 //in order to complete the authorization process we must call the browser auth openURL method so it may
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-    if let scheme = url.scheme, scheme.contains("bs")
+    if let scheme = url.scheme, scheme.contains("bsk")
     {
         return BrowserAuth.application(app, open: url, options: options)
     }
@@ -73,7 +76,7 @@ For more info on install the portal application see: https://github.com/BedKin/B
 
 5- To call blockstack for authorization:
 ```
-BrowserAuth.authorize(appId: "777", name: "HelloBlockStack") { (token) in
+BrowserAuth.authorize() { (token) in
     if let token = token
     {
         //app authorized. Use the provided token

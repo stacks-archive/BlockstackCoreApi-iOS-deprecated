@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
         
         //perform an authorization with a random ID and the app name.
         //alert the user of the result
-        BrowserAuth.authorize(appId: "777", name: "HelloBlockStack") { (token) in
+        BrowserAuth.authorize() { (token) in
                 if let token = token
                 {
                     let alert = UIAlertController(title: "Authorization Successful", message: "Blockstack access granted with Token:\n\(token)", preferredStyle: .alert)

@@ -116,38 +116,4 @@ public struct FormatContainer : Serializable
 }
 
 
-//MARK: Serialization Helpers
-protocol Serializable : Codable {
-    func serialize() -> Data?
-    static func deserialize(from data : Data?) -> Self?
-    static func deserializeArray(from data : Data?) -> [Self]?
-}
 
-extension Serializable
-{
-    func serialize() -> Data?
-    {
-        let encoder = JSONEncoder()
-        return try? encoder.encode(self)
-    }
-    
-    static func deserialize(from data : Data?) -> Self?
-    {
-        guard let data = data else {
-            return nil
-        }
-        
-         let decoder = JSONDecoder()
-         return try? decoder.decode(Self.self, from: data)
-    }
-    
-    static func deserializeArray(from data : Data?) -> [Self]?
-    {
-        guard let data = data else {
-            return nil
-        }
-        
-        let decoder = JSONDecoder()
-        return try? decoder.decode([Self].self, from: data)
-    }
-}

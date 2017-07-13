@@ -7,6 +7,10 @@
 
 public class BrowserAuth: NSObject {
     
+    static let blockstackUrl = "blockstack://auth"
+    //static let blockstackUrl = "http://10.0.0.159:8888/auth"
+    
+    
     //authorization scopes
     public enum Scope : String, Codable {
         case storeWrite = "store_write"
@@ -22,7 +26,7 @@ extension BrowserAuth {
     //determine if we can authorize the app, which will tell us if blockstack is installed.
     public static func canAuthorize() -> Bool
     {
-        let url = URL(string: "blockstack://")!
+        let url = URL(string: blockstackUrl)!
         return UIApplication.shared.canOpenURL(url)
     }
     
@@ -40,14 +44,14 @@ extension BrowserAuth {
         
         //create our signed auth request params
         guard let unsigned = makeAuthRequest(scopes: scopes),
-            let signed = TokenSigner.sign(requestData: unsigned) else
+            let signed = TokenSigner.signUnsecured(requestData: unsigned) else
         {
             handler(nil)
             return
         }
         
         //encode and create our URL Object
-        let urlString = "blockstack://auth?authRequest=\(signed)"
+        let urlString = "\(blockstackUrl)?authRequest=\(signed)"
         guard let encodedString = String(format: urlString).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
         let url = URL(string: encodedString) else {
             handler(nil)
@@ -73,8 +77,8 @@ extension BrowserAuth {
         let did = makeDID(publicKey: publicKey)
         
         //TODO: the old app requires a manifest Uri to be passed in, but a local app cannot service
-        //a file in this manner. THis needs to be able to be passed in directly.
-        let fakeManifestUri = "http://logansease.com/test_manifest.json"
+        //a file in this manner. This needs to be able to be passed in directly.
+        let fakeManifestUri = "https://s3.amazonaws.com/bedkin-misc-files/test_manifest.json"
         
         //create and return our payload
         let unsigned : [String : Any] = [
@@ -103,7 +107,7 @@ extension BrowserAuth{
             if let handler = responseHandler,
                 let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems,
                 let token = queryItems.filter({ $0.name == "authResponse"}).first?.value,
-                let decoded = TokenSigner.decode(responseData: token),
+                let decoded = TokenSigner.decodeUnsecured(responseData: token),
                 let username = decoded["username"] as? String
             {
                 handler(username)

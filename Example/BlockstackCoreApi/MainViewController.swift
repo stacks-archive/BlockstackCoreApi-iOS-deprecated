@@ -16,6 +16,10 @@ class MainViewController: UIViewController {
         //verify blockstack is installed.
         guard (BrowserAuth.canAuthorize() == true) else
         {
+            let alert = UIAlertController(title: "Blockstack Not Installed", message: "You must install the Blockstack Browser App in order to get authorization.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+            }))
+            self.present(alert, animated: true, completion: nil)
             return
         }
         

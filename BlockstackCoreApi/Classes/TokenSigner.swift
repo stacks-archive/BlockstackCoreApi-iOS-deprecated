@@ -41,6 +41,9 @@ public class TokenSigner
         }
         
         return nil
+        
+        //for now return our test token
+//        return "eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NksifQ.eyJqdGkiOiI0NDkxYjUyNC0yNmY1LTQ5YjctOWRmOC1kMzg1YTc5OTk3NzIiLCJpYXQiOjE1MDAwNDA3NjEsImV4cCI6MTUwMDA0NDM2MSwiaXNzIjoiZGlkOmJ0Yy1hZGRyOjE2aDNnYWRreUJIWThqVUQ1R2VEYVQyOU5taUtpUUpodVkiLCJwdWJsaWNfa2V5cyI6WyIwMzNlMmZjMzJhMzFiOTcyMTg0NDU0YmI2NDUwOTU3MzhlMjJjZjU3NzY3MWY0NjkwMWZhMzZkMzUwMTFjMzgzYjciXSwiZG9tYWluX25hbWUiOiJic2s3Nzc6Ly8iLCJtYW5pZmVzdF91cmkiOiJodHRwczovL3MzLmFtYXpvbmF3cy5jb20vY2FzYS13ZWIvbWFuaWZlc3QuanNvbiIsInJlZGlyZWN0X3VyaSI6ImJzazc3NzovL2F1dGgiLCJzY29wZXMiOlsic3RvcmVfd3JpdGUiXX0.cf8fhI0ZLU-U6tJfFiiLZF1beieLya6mKVVY38MsDFA1kE3IAeuIR8hqOKRcsOUrilaAdhs2nZMOLV8PEGlBUA"
     }
     
     public static func decode(responseData : String, privateKey: String) -> [String : Any]?

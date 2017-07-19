@@ -8,7 +8,7 @@
 public class BrowserAuth: NSObject {
     
     static let blockstackUrl = "blockstack://auth"
-    //static let blockstackUrl = "http://10.0.0.159:8888/auth"
+    //static let blockstackUrl = "http://localhost:8888/auth"
     
     
     //authorization scopes
@@ -42,16 +42,20 @@ extension BrowserAuth {
             return
         }
         
+        //generate private and public keys
+        let privateKey = generateAndStoreAppKey()
+        let publicKey = derivePublicKey(privateKey: privateKey)
+        
         //create our signed auth request params
-        guard let unsigned = makeAuthRequest(scopes: scopes),
-            let signed = TokenSigner.signUnsecured(requestData: unsigned) else
+        guard let unsigned = makeAuthRequest(publicKey: publicKey, scopes: scopes),
+            let signed = TokenSigner.sign(requestData: unsigned, privateKey: privateKey) else
         {
             handler(nil)
             return
         }
         
         //encode and create our URL Object
-        let urlString = "\(blockstackUrl)?authRequest=\(signed)"
+        let urlString = "\(blockstackUrl)?authRequest=\(signed)&target=bsk"
         guard let encodedString = String(format: urlString).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
         let url = URL(string: encodedString) else {
             handler(nil)
@@ -64,7 +68,7 @@ extension BrowserAuth {
     }
     
     //create a dictionary containing our request data to send to the blockstack app
-    public static func makeAuthRequest(scopes : [Scope]) -> [String: Any]?
+    public static func makeAuthRequest(publicKey: String, scopes : [Scope]) -> [String: Any]?
     {
         guard let redirect = Bundle.main.infoDictionary?["BlockstackCompletionUri"] as? String else
         {
@@ -72,8 +76,6 @@ extension BrowserAuth {
         }
         
         //make all the keys we need to generate our payload
-        let privateKey = generateAndStoreAppKey()
-        let publicKey = derivePublicKey(privateKey: privateKey)
         let did = makeDID(publicKey: publicKey)
         
         //TODO: the old app requires a manifest Uri to be passed in, but a local app cannot service

@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## BlockstackCoreApi
+## BlockstackCoreApi-iOS
 
 Copyright (c) 2017 lsease@gmail.com <lsease@gmail.com>
 

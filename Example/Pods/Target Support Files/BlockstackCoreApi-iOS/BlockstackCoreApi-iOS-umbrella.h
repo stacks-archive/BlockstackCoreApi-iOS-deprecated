@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double BlockstackCoreApiVersionNumber;
-FOUNDATION_EXPORT const unsigned char BlockstackCoreApiVersionString[];
+FOUNDATION_EXPORT double BlockstackCoreApi_iOSVersionNumber;
+FOUNDATION_EXPORT const unsigned char BlockstackCoreApi_iOSVersionString[];
 

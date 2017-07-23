@@ -7,93 +7,86 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00417DFD1EFC59BA00F7230B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00417DFC1EFC59BA00F7230B /* Constants.swift */; };
-		005C5D241F015D7F00EC6808 /* BrowserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C5D231F015D7F00EC6808 /* BrowserAuth.swift */; };
-		005C5D2C1F029C8D00EC6808 /* ApiResponseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005C5D2B1F029C8D00EC6808 /* ApiResponseTypes.swift */; };
-		006DCFD31F17BF150037191E /* TokenSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006DCFD21F17BF150037191E /* TokenSigner.swift */; };
-		006DCFD51F17BFCE0037191E /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006DCFD41F17BFCE0037191E /* String+Base64.swift */; };
-		006DCFD71F17C04F0037191E /* StringDictionary+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006DCFD61F17C04F0037191E /* StringDictionary+Json.swift */; };
-		006DCFD91F17CCA60037191E /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006DCFD81F17CCA60037191E /* Serializable.swift */; };
-		006DCFDB1F17F2E30037191E /* String+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006DCFDA1F17F2E30037191E /* String+Subscript.swift */; };
-		007809221EFD574300CD2ED2 /* URLHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007809211EFD574300CD2ED2 /* URLHelpers.swift */; };
-		00E5BB091EFC58F00028879A /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E5BB081EFC58F00028879A /* ApiEndpoint.swift */; };
-		0F2B7CB12C953AE185BA5E1BC9843F1D /* BlockstackCoreApi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DF6C02DD6121A8582406D27455FF9DA6 /* BlockstackCoreApi-dummy.m */; };
-		194E830C635E1A16C1B524CFAE21B82F /* Pods-BlockstackCoreApi_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D10B67221D4994788F29454CA004BCB9 /* Pods-BlockstackCoreApi_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B3B6C92449542740E0C5AA383057B07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		01C0169DCE060A936CA071A870471D51 /* ApiResponseTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF6DA24AFE3F215A95CE417488A81F9 /* ApiResponseTypes.swift */; };
+		08CAA968994571A4081CA9CF7B3E3B90 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F85A78D69EEEDE9A7403A72F2146497 /* Serializable.swift */; };
+		100DFCFE57DF63049092557FD1E3CDD8 /* String+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E942414E52CACD507FB66DDC51E965C /* String+Subscript.swift */; };
+		172F30D4001F76DEBEBBFA24273F134F /* TokenSigner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C954EE1E38C68816043F477A792D1F5 /* TokenSigner.swift */; };
 		1DCA3472735A2E290589A2928B0637B5 /* Pods-BlockstackCoreApi_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C500B9ECC9B51257E7A266D9BD18CE4C /* Pods-BlockstackCoreApi_Tests-dummy.m */; };
-		8FA13C1BCE846437283AA950396CFAA7 /* Pods-BlockstackCoreApi_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 745EAC6DC8EB696D458B0FEF4A104C89 /* Pods-BlockstackCoreApi_Example-dummy.m */; };
-		A8DD2ABCE5A610F2CB8C6476CEE322E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		C8A900BE2C6676C51CF06D97C18130F4 /* BlockstackCoreApi-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5195E954C72B75F2A2D31B191070E70F /* BlockstackCoreApi-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		230977BEE7A2D4F43567FB20251FD3B4 /* AuthFlowDoc.txt in Sources */ = {isa = PBXBuildFile; fileRef = 95048D45543BE298C5A9596809F755E7 /* AuthFlowDoc.txt */; };
+		27D60BC91A92AB9437B59EF3AD92F1C3 /* CoreApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119657F5C45ACBC50B5631FDC6107466 /* CoreApi.swift */; };
+		34D6B6B68072897AF05A42925F9E1D64 /* Pods-BlockstackCoreApi_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 745EAC6DC8EB696D458B0FEF4A104C89 /* Pods-BlockstackCoreApi_Example-dummy.m */; };
+		38558CE02872DC637A75290A5B7042AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		565101C5D678EC15DBD974B9CE37AD44 /* BlockstackCoreApi-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AA85F277F2E02AF794711513BD24F347 /* BlockstackCoreApi-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		601071956C4E5956D4FE9D77F060177E /* BrowserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1F3DB8E299E7EA014E93433B3CCC1E /* BrowserAuth.swift */; };
+		79D38B5FBA2B0C6DBB553742397F62BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D2078C9EBDCF208AFC6D4A14114412 /* Constants.swift */; };
+		877BAC3C561716FA1EAA7B165E78F7BA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		9A0AB3606ACFECAF2FB5D9EA2A994B62 /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87E9E9AC9C7541D6338A1CAA586CB7B /* String+Base64.swift */; };
+		AFA54AE5BCE40E762D872A25A12C0551 /* Pods-BlockstackCoreApi_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D10B67221D4994788F29454CA004BCB9 /* Pods-BlockstackCoreApi_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C09F9D54C82E7BC5BFD5922688F6DE28 /* StringDictionary+Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = D983033D9A3E39B58981D0D77DFF6181 /* StringDictionary+Json.swift */; };
 		CEACDC35D95F3A542D4E898450303875 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		D3346BE44C0595322E5E2ED685742862 /* URLHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4F7A90A20C9F83C9C0AFE7879F3E52 /* URLHelpers.swift */; };
 		D9D4CF488EFDFEC1A707E0A3AC45A7D8 /* Pods-BlockstackCoreApi_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 83AB472BD18D142AC5D9C21A6E77F5A0 /* Pods-BlockstackCoreApi_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FD61CD14DC4E2C65D54A323A2743D653 /* CoreApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BCC36E9E186867A51EEF36F4A24C94 /* CoreApi.swift */; };
+		EC214673BBD2B4A98E74145C2644E523 /* BlockstackCoreApi-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B1ECE9E83BDF869FD4E7C26CE6A10D /* BlockstackCoreApi-iOS-dummy.m */; };
+		FB972973DFFE50A7D26DB1A1A8F38873 /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1BB8E4C30BDD965AE86454B46357CF /* ApiEndpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		137960B4CF1B9973C71F55EFFBF2B26D /* PBXContainerItemProxy */ = {
+		2EE2C4E1A7A25E85E2DDE9D138DC7AC9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B9310883FA83E6277B83918F54C77FFF;
-			remoteInfo = BlockstackCoreApi;
+			remoteGlobalIDString = 9F6419FC23BBDC20388BB1EB20F1E8DF;
+			remoteInfo = "BlockstackCoreApi-iOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00417DFC1EFC59BA00F7230B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		005C5D231F015D7F00EC6808 /* BrowserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserAuth.swift; sourceTree = "<group>"; };
-		005C5D2B1F029C8D00EC6808 /* ApiResponseTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseTypes.swift; sourceTree = "<group>"; };
-		006DCFD11F1684800037191E /* AuthFlowDoc.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = AuthFlowDoc.txt; sourceTree = "<group>"; };
-		006DCFD21F17BF150037191E /* TokenSigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenSigner.swift; sourceTree = "<group>"; };
-		006DCFD41F17BFCE0037191E /* String+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64.swift"; sourceTree = "<group>"; };
-		006DCFD61F17C04F0037191E /* StringDictionary+Json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringDictionary+Json.swift"; sourceTree = "<group>"; };
-		006DCFD81F17CCA60037191E /* Serializable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
-		006DCFDA1F17F2E30037191E /* String+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Subscript.swift"; sourceTree = "<group>"; };
-		007809211EFD574300CD2ED2 /* URLHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelpers.swift; sourceTree = "<group>"; };
-		00E5BB081EFC58F00028879A /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
+		09D2078C9EBDCF208AFC6D4A14114412 /* Constants.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		0D45B064010ADEF095E66E0520948C41 /* Pods-BlockstackCoreApi_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BlockstackCoreApi_Example-resources.sh"; sourceTree = "<group>"; };
-		154CC253ED0DC7F8D714B671FD658BE2 /* Pods_BlockstackCoreApi_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockstackCoreApi_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		19BCC36E9E186867A51EEF36F4A24C94 /* CoreApi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreApi.swift; sourceTree = "<group>"; };
+		0E1F3DB8E299E7EA014E93433B3CCC1E /* BrowserAuth.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BrowserAuth.swift; sourceTree = "<group>"; };
+		119657F5C45ACBC50B5631FDC6107466 /* CoreApi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreApi.swift; sourceTree = "<group>"; };
 		1CFC7AEE9C4D33E3619CA6463BE9D28D /* Pods-BlockstackCoreApi_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BlockstackCoreApi_Example.release.xcconfig"; sourceTree = "<group>"; };
-		252091A959CE1EFECDD7E2AAE4635E2D /* BlockstackCoreApi-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BlockstackCoreApi-prefix.pch"; sourceTree = "<group>"; };
 		36D4CF0C7938E94502AD0FDE6504EA69 /* Pods-BlockstackCoreApi_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BlockstackCoreApi_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		4B421B049F3CA1536A27A76A6DF409A1 /* Pods_BlockstackCoreApi_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockstackCoreApi_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5195E954C72B75F2A2D31B191070E70F /* BlockstackCoreApi-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BlockstackCoreApi-umbrella.h"; sourceTree = "<group>"; };
+		3975C17C10D60003E8041CEC303A1D46 /* Pods_BlockstackCoreApi_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BlockstackCoreApi_Tests.framework; path = "Pods-BlockstackCoreApi_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E942414E52CACD507FB66DDC51E965C /* String+Subscript.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Subscript.swift"; sourceTree = "<group>"; };
+		3EC7106F718C8D46BD72314B086DB48C /* Pods_BlockstackCoreApi_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BlockstackCoreApi_Example.framework; path = "Pods-BlockstackCoreApi_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C954EE1E38C68816043F477A792D1F5 /* TokenSigner.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = TokenSigner.swift; sourceTree = "<group>"; };
 		52349796EF11A674677B11AAA7CA4862 /* Pods-BlockstackCoreApi_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BlockstackCoreApi_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		63C4FA83241BF534CDFFA2B7D134B4BE /* BlockstackCoreApi.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BlockstackCoreApi.xcconfig; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		73AB54BFBDAA87AAFC81C3048556F6F3 /* BlockstackCoreApi.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = BlockstackCoreApi.modulemap; sourceTree = "<group>"; };
 		745EAC6DC8EB696D458B0FEF4A104C89 /* Pods-BlockstackCoreApi_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BlockstackCoreApi_Example-dummy.m"; sourceTree = "<group>"; };
 		74CC384A4C88A8B2DE5B628FC22F0693 /* Pods-BlockstackCoreApi_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BlockstackCoreApi_Tests-resources.sh"; sourceTree = "<group>"; };
-		76A5BB0CB3FC610937A621B452691784 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83AB472BD18D142AC5D9C21A6E77F5A0 /* Pods-BlockstackCoreApi_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BlockstackCoreApi_Tests-umbrella.h"; sourceTree = "<group>"; };
 		862AB20FE87B33266294A868E4AF1C27 /* Pods-BlockstackCoreApi_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BlockstackCoreApi_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		8C370729D35F81BC98B70F4894582640 /* BlockstackCoreApi_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = BlockstackCoreApi_iOS.framework; path = "BlockstackCoreApi-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CE177CF10BC649B4F884687E939896F /* Pods-BlockstackCoreApi_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BlockstackCoreApi_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		8E2CCEB4509117E346D4CB82E2C9B1AB /* Pods-BlockstackCoreApi_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BlockstackCoreApi_Tests.modulemap"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8E2CCEB4509117E346D4CB82E2C9B1AB /* Pods-BlockstackCoreApi_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BlockstackCoreApi_Tests.modulemap"; sourceTree = "<group>"; };
+		923BEFA9E7DC4F2A23FCA685CAD5B4F6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		95048D45543BE298C5A9596809F755E7 /* AuthFlowDoc.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = AuthFlowDoc.txt; sourceTree = "<group>"; };
 		957ED23EE2D7B01B02A12CA991DF5436 /* Pods-BlockstackCoreApi_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BlockstackCoreApi_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9CEA21F7E2A160EA47602837C910E65C /* BlockstackCoreApi-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "BlockstackCoreApi-iOS.xcconfig"; sourceTree = "<group>"; };
+		9F85A78D69EEEDE9A7403A72F2146497 /* Serializable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
+		A9AD35F646293A5160C5FC6BCE1B755F /* BlockstackCoreApi-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "BlockstackCoreApi-iOS.modulemap"; sourceTree = "<group>"; };
+		AA4F7A90A20C9F83C9C0AFE7879F3E52 /* URLHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = URLHelpers.swift; sourceTree = "<group>"; };
+		AA85F277F2E02AF794711513BD24F347 /* BlockstackCoreApi-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BlockstackCoreApi-iOS-umbrella.h"; sourceTree = "<group>"; };
+		B515DF0798779562F203B3E856ED2BC1 /* BlockstackCoreApi-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BlockstackCoreApi-iOS-prefix.pch"; sourceTree = "<group>"; };
 		BB1A9F4E0415FCBE0AA56373B9504A4B /* Pods-BlockstackCoreApi_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BlockstackCoreApi_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BD1BB8E4C30BDD965AE86454B46357CF /* ApiEndpoint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
 		C500B9ECC9B51257E7A266D9BD18CE4C /* Pods-BlockstackCoreApi_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BlockstackCoreApi_Tests-dummy.m"; sourceTree = "<group>"; };
-		CF06A05A721F49EBC775E8DBBC8CAAD0 /* Pods-BlockstackCoreApi_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-BlockstackCoreApi_Example.modulemap"; sourceTree = "<group>"; };
+		CF06A05A721F49EBC775E8DBBC8CAAD0 /* Pods-BlockstackCoreApi_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BlockstackCoreApi_Example.modulemap"; sourceTree = "<group>"; };
 		D0A9639019D93FA65BC8171C9B26E4D8 /* Pods-BlockstackCoreApi_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BlockstackCoreApi_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D10B67221D4994788F29454CA004BCB9 /* Pods-BlockstackCoreApi_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BlockstackCoreApi_Example-umbrella.h"; sourceTree = "<group>"; };
 		D2388E3F2FC87059C89CAA86DC801278 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2B57CE548A6C307AA4B668CF8DC6C95 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D43EA984FC02BA68552CE241A43892A2 /* BlockstackCoreApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BlockstackCoreApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D87E9E9AC9C7541D6338A1CAA586CB7B /* String+Base64.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Base64.swift"; sourceTree = "<group>"; };
+		D983033D9A3E39B58981D0D77DFF6181 /* StringDictionary+Json.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "StringDictionary+Json.swift"; sourceTree = "<group>"; };
 		DD1B2EF45BD19DA2A8507CEB26BB5CFE /* Pods-BlockstackCoreApi_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BlockstackCoreApi_Example-frameworks.sh"; sourceTree = "<group>"; };
-		DF6C02DD6121A8582406D27455FF9DA6 /* BlockstackCoreApi-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BlockstackCoreApi-dummy.m"; sourceTree = "<group>"; };
+		EEF6DA24AFE3F215A95CE417488A81F9 /* ApiResponseTypes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ApiResponseTypes.swift; sourceTree = "<group>"; };
+		F5B1ECE9E83BDF869FD4E7C26CE6A10D /* BlockstackCoreApi-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BlockstackCoreApi-iOS-dummy.m"; sourceTree = "<group>"; };
 		FBD9C0462E7B5CE450694392E430AEFC /* Pods-BlockstackCoreApi_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BlockstackCoreApi_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5CED90CCE35570829E1B8F301FAF2E37 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A8DD2ABCE5A610F2CB8C6476CEE322E2 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5D307FB1850F18C3CC561A6FB040AC2C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -102,25 +95,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		644564965CB3B94F3827084BF774D8AB /* Frameworks */ = {
+		6AEA1121585B0F9E441A5BA880F9852D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B3B6C92449542740E0C5AA383057B07 /* Foundation.framework in Frameworks */,
+				877BAC3C561716FA1EAA7B165E78F7BA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96085C961988EA538622F4407140805E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38558CE02872DC637A75290A5B7042AA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1D21641BBFC7424902250593B56B5AC9 /* Products */ = {
+		1B57C8CFC4C8898F5C8183463600E2C9 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D43EA984FC02BA68552CE241A43892A2 /* BlockstackCoreApi.framework */,
-				4B421B049F3CA1536A27A76A6DF409A1 /* Pods_BlockstackCoreApi_Example.framework */,
-				154CC253ED0DC7F8D714B671FD658BE2 /* Pods_BlockstackCoreApi_Tests.framework */,
+				A9AD35F646293A5160C5FC6BCE1B755F /* BlockstackCoreApi-iOS.modulemap */,
+				9CEA21F7E2A160EA47602837C910E65C /* BlockstackCoreApi-iOS.xcconfig */,
+				F5B1ECE9E83BDF869FD4E7C26CE6A10D /* BlockstackCoreApi-iOS-dummy.m */,
+				B515DF0798779562F203B3E856ED2BC1 /* BlockstackCoreApi-iOS-prefix.pch */,
+				AA85F277F2E02AF794711513BD24F347 /* BlockstackCoreApi-iOS-umbrella.h */,
+				923BEFA9E7DC4F2A23FCA685CAD5B4F6 /* Info.plist */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/BlockstackCoreApi-iOS";
 			sourceTree = "<group>";
 		};
 		2944FD1B7ACD8CAC9A6A4B010C8A8F42 /* Targets Support Files */ = {
@@ -132,23 +137,21 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		47D00DC78A227F1A2A4E9965306FC926 /* BlockstackCoreApi */ = {
+		3DBAAC04A777365A1B84E991F654BAAC /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E5F75D031CE001CA88C710F5D9D0C615 /* BlockstackCoreApi */,
-				ECD5A7CCE54D4FCD8E59C64A2AF39F03 /* Support Files */,
+				B1C3C805D60B66D2B3BD8E2AA82CD0F1 /* BlockstackCoreApi-iOS */,
 			);
-			name = BlockstackCoreApi;
-			path = ../..;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				D7449EF65B4AF19B2F57D59395D62EAD /* Development Pods */,
+				3DBAAC04A777365A1B84E991F654BAAC /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				1D21641BBFC7424902250593B56B5AC9 /* Products */,
+				ADF0B483938C6EC1EFB439DB7EBFB5A9 /* Products */,
 				2944FD1B7ACD8CAC9A6A4B010C8A8F42 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -171,6 +174,15 @@
 			path = "Target Support Files/Pods-BlockstackCoreApi_Tests";
 			sourceTree = "<group>";
 		};
+		A69ED9480727D74AE2EA4D0B8EA42A1D /* BlockstackCoreApi */ = {
+			isa = PBXGroup;
+			children = (
+				F4CE7A4670CCE2B72E9AD2C6C492B492 /* Classes */,
+			);
+			name = BlockstackCoreApi;
+			path = BlockstackCoreApi;
+			sourceTree = "<group>";
+		};
 		A73A4F5F0F651CC762E444C0FCF28449 /* Pods-BlockstackCoreApi_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,31 +201,32 @@
 			path = "Target Support Files/Pods-BlockstackCoreApi_Example";
 			sourceTree = "<group>";
 		};
+		ADF0B483938C6EC1EFB439DB7EBFB5A9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C370729D35F81BC98B70F4894582640 /* BlockstackCoreApi_iOS.framework */,
+				3EC7106F718C8D46BD72314B086DB48C /* Pods_BlockstackCoreApi_Example.framework */,
+				3975C17C10D60003E8041CEC303A1D46 /* Pods_BlockstackCoreApi_Tests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1C3C805D60B66D2B3BD8E2AA82CD0F1 /* BlockstackCoreApi-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				A69ED9480727D74AE2EA4D0B8EA42A1D /* BlockstackCoreApi */,
+				1B57C8CFC4C8898F5C8183463600E2C9 /* Support Files */,
+			);
+			name = "BlockstackCoreApi-iOS";
+			path = ../..;
+			sourceTree = "<group>";
+		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C91B13BDBC94A85773F12E92E0910363 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				19BCC36E9E186867A51EEF36F4A24C94 /* CoreApi.swift */,
-				00E5BB081EFC58F00028879A /* ApiEndpoint.swift */,
-				00417DFC1EFC59BA00F7230B /* Constants.swift */,
-				007809211EFD574300CD2ED2 /* URLHelpers.swift */,
-				005C5D231F015D7F00EC6808 /* BrowserAuth.swift */,
-				005C5D2B1F029C8D00EC6808 /* ApiResponseTypes.swift */,
-				006DCFD21F17BF150037191E /* TokenSigner.swift */,
-				006DCFD41F17BFCE0037191E /* String+Base64.swift */,
-				006DCFD61F17C04F0037191E /* StringDictionary+Json.swift */,
-				006DCFD81F17CCA60037191E /* Serializable.swift */,
-				006DCFD11F1684800037191E /* AuthFlowDoc.txt */,
-				006DCFDA1F17F2E30037191E /* String+Subscript.swift */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
@@ -224,44 +237,34 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		D7449EF65B4AF19B2F57D59395D62EAD /* Development Pods */ = {
+		F4CE7A4670CCE2B72E9AD2C6C492B492 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				47D00DC78A227F1A2A4E9965306FC926 /* BlockstackCoreApi */,
+				BD1BB8E4C30BDD965AE86454B46357CF /* ApiEndpoint.swift */,
+				EEF6DA24AFE3F215A95CE417488A81F9 /* ApiResponseTypes.swift */,
+				95048D45543BE298C5A9596809F755E7 /* AuthFlowDoc.txt */,
+				0E1F3DB8E299E7EA014E93433B3CCC1E /* BrowserAuth.swift */,
+				09D2078C9EBDCF208AFC6D4A14114412 /* Constants.swift */,
+				119657F5C45ACBC50B5631FDC6107466 /* CoreApi.swift */,
+				9F85A78D69EEEDE9A7403A72F2146497 /* Serializable.swift */,
+				D87E9E9AC9C7541D6338A1CAA586CB7B /* String+Base64.swift */,
+				3E942414E52CACD507FB66DDC51E965C /* String+Subscript.swift */,
+				D983033D9A3E39B58981D0D77DFF6181 /* StringDictionary+Json.swift */,
+				4C954EE1E38C68816043F477A792D1F5 /* TokenSigner.swift */,
+				AA4F7A90A20C9F83C9C0AFE7879F3E52 /* URLHelpers.swift */,
 			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		E5F75D031CE001CA88C710F5D9D0C615 /* BlockstackCoreApi */ = {
-			isa = PBXGroup;
-			children = (
-				C91B13BDBC94A85773F12E92E0910363 /* Classes */,
-			);
-			path = BlockstackCoreApi;
-			sourceTree = "<group>";
-		};
-		ECD5A7CCE54D4FCD8E59C64A2AF39F03 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				73AB54BFBDAA87AAFC81C3048556F6F3 /* BlockstackCoreApi.modulemap */,
-				63C4FA83241BF534CDFFA2B7D134B4BE /* BlockstackCoreApi.xcconfig */,
-				DF6C02DD6121A8582406D27455FF9DA6 /* BlockstackCoreApi-dummy.m */,
-				252091A959CE1EFECDD7E2AAE4635E2D /* BlockstackCoreApi-prefix.pch */,
-				5195E954C72B75F2A2D31B191070E70F /* BlockstackCoreApi-umbrella.h */,
-				76A5BB0CB3FC610937A621B452691784 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/BlockstackCoreApi";
+			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		6400CA23FE46D677306E776EACAA954A /* Headers */ = {
+		09362F0B53E351004674DA60C33D7F19 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8A900BE2C6676C51CF06D97C18130F4 /* BlockstackCoreApi-umbrella.h in Headers */,
+				565101C5D678EC15DBD974B9CE37AD44 /* BlockstackCoreApi-iOS-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,17 +276,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C8BA0E49B64BF887CF8CA95CBA48816C /* Headers */ = {
+		D46AD381F455353CDC295768E36F2E6E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				194E830C635E1A16C1B524CFAE21B82F /* Pods-BlockstackCoreApi_Example-umbrella.h in Headers */,
+				AFA54AE5BCE40E762D872A25A12C0551 /* Pods-BlockstackCoreApi_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		06FE2BCE117081CBDD1540B0D26101A8 /* Pods-BlockstackCoreApi_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4AC23BD4B4F2135177F34BBDF51DFF7 /* Build configuration list for PBXNativeTarget "Pods-BlockstackCoreApi_Example" */;
+			buildPhases = (
+				90E3C7B069285ADA5E565EBAA86B6462 /* Sources */,
+				6AEA1121585B0F9E441A5BA880F9852D /* Frameworks */,
+				D46AD381F455353CDC295768E36F2E6E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E3FB53119810DB879277193B5116BE74 /* PBXTargetDependency */,
+			);
+			name = "Pods-BlockstackCoreApi_Example";
+			productName = "Pods-BlockstackCoreApi_Example";
+			productReference = 3EC7106F718C8D46BD72314B086DB48C /* Pods_BlockstackCoreApi_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		8E379DF6B2F80D1EE29ACDDE2B09B420 /* Pods-BlockstackCoreApi_Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB03B58628BDEC7F6D87356CC2AF0D12 /* Build configuration list for PBXNativeTarget "Pods-BlockstackCoreApi_Tests" */;
@@ -298,42 +319,24 @@
 			);
 			name = "Pods-BlockstackCoreApi_Tests";
 			productName = "Pods-BlockstackCoreApi_Tests";
-			productReference = 154CC253ED0DC7F8D714B671FD658BE2 /* Pods_BlockstackCoreApi_Tests.framework */;
+			productReference = 3975C17C10D60003E8041CEC303A1D46 /* Pods_BlockstackCoreApi_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		9335EA857BBBCE555B4C479BC7358430 /* Pods-BlockstackCoreApi_Example */ = {
+		9F6419FC23BBDC20388BB1EB20F1E8DF /* BlockstackCoreApi-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52D4698C1F752844897053F86E96CE5C /* Build configuration list for PBXNativeTarget "Pods-BlockstackCoreApi_Example" */;
+			buildConfigurationList = A575577A14E3F7A3C7D864A51D830D74 /* Build configuration list for PBXNativeTarget "BlockstackCoreApi-iOS" */;
 			buildPhases = (
-				54562736DE83FF249301277E2889CBC4 /* Sources */,
-				644564965CB3B94F3827084BF774D8AB /* Frameworks */,
-				C8BA0E49B64BF887CF8CA95CBA48816C /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D716DEBDD4D63334FC37B44ED9DC5FAC /* PBXTargetDependency */,
-			);
-			name = "Pods-BlockstackCoreApi_Example";
-			productName = "Pods-BlockstackCoreApi_Example";
-			productReference = 4B421B049F3CA1536A27A76A6DF409A1 /* Pods_BlockstackCoreApi_Example.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		B9310883FA83E6277B83918F54C77FFF /* BlockstackCoreApi */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 752CF4654D2324E63BD95EDCEF392A96 /* Build configuration list for PBXNativeTarget "BlockstackCoreApi" */;
-			buildPhases = (
-				C8A419A0D0CDB4DAAAA670AF903B8913 /* Sources */,
-				5CED90CCE35570829E1B8F301FAF2E37 /* Frameworks */,
-				6400CA23FE46D677306E776EACAA954A /* Headers */,
+				48FA771EE561BF4F7C2C2B09BE375592 /* Sources */,
+				96085C961988EA538622F4407140805E /* Frameworks */,
+				09362F0B53E351004674DA60C33D7F19 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = BlockstackCoreApi;
-			productName = BlockstackCoreApi;
-			productReference = D43EA984FC02BA68552CE241A43892A2 /* BlockstackCoreApi.framework */;
+			name = "BlockstackCoreApi-iOS";
+			productName = "BlockstackCoreApi-iOS";
+			productReference = 8C370729D35F81BC98B70F4894582640 /* BlockstackCoreApi_iOS.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -343,12 +346,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
-				TargetAttributes = {
-					B9310883FA83E6277B83918F54C77FFF = {
-						LastSwiftMigration = 0900;
-					};
-				};
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -358,12 +356,12 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 1D21641BBFC7424902250593B56B5AC9 /* Products */;
+			productRefGroup = ADF0B483938C6EC1EFB439DB7EBFB5A9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B9310883FA83E6277B83918F54C77FFF /* BlockstackCoreApi */,
-				9335EA857BBBCE555B4C479BC7358430 /* Pods-BlockstackCoreApi_Example */,
+				9F6419FC23BBDC20388BB1EB20F1E8DF /* BlockstackCoreApi-iOS */,
+				06FE2BCE117081CBDD1540B0D26101A8 /* Pods-BlockstackCoreApi_Example */,
 				8E379DF6B2F80D1EE29ACDDE2B09B420 /* Pods-BlockstackCoreApi_Tests */,
 			);
 		};
@@ -378,139 +376,82 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		54562736DE83FF249301277E2889CBC4 /* Sources */ = {
+		48FA771EE561BF4F7C2C2B09BE375592 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FA13C1BCE846437283AA950396CFAA7 /* Pods-BlockstackCoreApi_Example-dummy.m in Sources */,
+				FB972973DFFE50A7D26DB1A1A8F38873 /* ApiEndpoint.swift in Sources */,
+				01C0169DCE060A936CA071A870471D51 /* ApiResponseTypes.swift in Sources */,
+				230977BEE7A2D4F43567FB20251FD3B4 /* AuthFlowDoc.txt in Sources */,
+				EC214673BBD2B4A98E74145C2644E523 /* BlockstackCoreApi-iOS-dummy.m in Sources */,
+				601071956C4E5956D4FE9D77F060177E /* BrowserAuth.swift in Sources */,
+				79D38B5FBA2B0C6DBB553742397F62BE /* Constants.swift in Sources */,
+				27D60BC91A92AB9437B59EF3AD92F1C3 /* CoreApi.swift in Sources */,
+				08CAA968994571A4081CA9CF7B3E3B90 /* Serializable.swift in Sources */,
+				9A0AB3606ACFECAF2FB5D9EA2A994B62 /* String+Base64.swift in Sources */,
+				100DFCFE57DF63049092557FD1E3CDD8 /* String+Subscript.swift in Sources */,
+				C09F9D54C82E7BC5BFD5922688F6DE28 /* StringDictionary+Json.swift in Sources */,
+				172F30D4001F76DEBEBBFA24273F134F /* TokenSigner.swift in Sources */,
+				D3346BE44C0595322E5E2ED685742862 /* URLHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C8A419A0D0CDB4DAAAA670AF903B8913 /* Sources */ = {
+		90E3C7B069285ADA5E565EBAA86B6462 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E5BB091EFC58F00028879A /* ApiEndpoint.swift in Sources */,
-				007809221EFD574300CD2ED2 /* URLHelpers.swift in Sources */,
-				0F2B7CB12C953AE185BA5E1BC9843F1D /* BlockstackCoreApi-dummy.m in Sources */,
-				005C5D2C1F029C8D00EC6808 /* ApiResponseTypes.swift in Sources */,
-				006DCFD51F17BFCE0037191E /* String+Base64.swift in Sources */,
-				005C5D241F015D7F00EC6808 /* BrowserAuth.swift in Sources */,
-				006DCFDB1F17F2E30037191E /* String+Subscript.swift in Sources */,
-				006DCFD91F17CCA60037191E /* Serializable.swift in Sources */,
-				006DCFD71F17C04F0037191E /* StringDictionary+Json.swift in Sources */,
-				006DCFD31F17BF150037191E /* TokenSigner.swift in Sources */,
-				00417DFD1EFC59BA00F7230B /* Constants.swift in Sources */,
-				FD61CD14DC4E2C65D54A323A2743D653 /* CoreApi.swift in Sources */,
+				34D6B6B68072897AF05A42925F9E1D64 /* Pods-BlockstackCoreApi_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D716DEBDD4D63334FC37B44ED9DC5FAC /* PBXTargetDependency */ = {
+		E3FB53119810DB879277193B5116BE74 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = BlockstackCoreApi;
-			target = B9310883FA83E6277B83918F54C77FFF /* BlockstackCoreApi */;
-			targetProxy = 137960B4CF1B9973C71F55EFFBF2B26D /* PBXContainerItemProxy */;
+			name = "BlockstackCoreApi-iOS";
+			target = 9F6419FC23BBDC20388BB1EB20F1E8DF /* BlockstackCoreApi-iOS */;
+			targetProxy = 2EE2C4E1A7A25E85E2DDE9D138DC7AC9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		54B79E2EFF69920877150CE61197EE0D /* Debug */ = {
+		3AA24DFE4A4FD13601C034CED1E13203 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0A9639019D93FA65BC8171C9B26E4D8 /* Pods-BlockstackCoreApi_Example.debug.xcconfig */;
+			baseConfigurationReference = 9CEA21F7E2A160EA47602837C910E65C /* BlockstackCoreApi-iOS.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-BlockstackCoreApi_Example/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/BlockstackCoreApi-iOS/BlockstackCoreApi-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BlockstackCoreApi-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-BlockstackCoreApi_Example/Pods-BlockstackCoreApi_Example.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_BlockstackCoreApi_Example;
+				MODULEMAP_FILE = "Target Support Files/BlockstackCoreApi-iOS/BlockstackCoreApi-iOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = BlockstackCoreApi_iOS;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
-		};
-		717E77604BFBB04BEAF56608A1CB2EDE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGNING_REQUIRED = NO;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
 			name = Release;
 		};
-		A6A03C9B1314C05BD3C2FBD3F65EDF83 /* Debug */ = {
+		4CAC2AB32206B6600685039F3523A5C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -520,9 +461,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -530,21 +469,15 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
@@ -558,17 +491,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		A6CA320C90F7C04FFE45CCA57D53CCCF /* Release */ = {
+		5E082A87DB63257B2430A6223C2D7B53 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8CE177CF10BC649B4F884687E939896F /* Pods-BlockstackCoreApi_Tests.release.xcconfig */;
 			buildSettings = {
@@ -586,7 +518,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-BlockstackCoreApi_Tests/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-BlockstackCoreApi_Tests/Pods-BlockstackCoreApi_Tests.modulemap";
@@ -604,9 +536,9 @@
 			};
 			name = Release;
 		};
-		AC71EE9F6F697B3457E1FE4F67E96733 /* Debug */ = {
+		612CFF2667D80DD764D463D044475F7E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 862AB20FE87B33266294A868E4AF1C27 /* Pods-BlockstackCoreApi_Tests.debug.xcconfig */;
+			baseConfigurationReference = 9CEA21F7E2A160EA47602837C910E65C /* BlockstackCoreApi-iOS.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -620,55 +552,18 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-BlockstackCoreApi_Tests/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/BlockstackCoreApi-iOS/BlockstackCoreApi-iOS-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/BlockstackCoreApi-iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-BlockstackCoreApi_Tests/Pods-BlockstackCoreApi_Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/BlockstackCoreApi-iOS/BlockstackCoreApi-iOS.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_BlockstackCoreApi_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		B535009B1BEF19B1E8AAAC309BDFD83D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 63C4FA83241BF534CDFFA2B7D134B4BE /* BlockstackCoreApi.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/BlockstackCoreApi/BlockstackCoreApi-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/BlockstackCoreApi/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/BlockstackCoreApi/BlockstackCoreApi.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = BlockstackCoreApi;
+				PRODUCT_NAME = BlockstackCoreApi_iOS;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -676,43 +571,90 @@
 			};
 			name = Debug;
 		};
-		C724A21986E0988D448DA359E0B2D323 /* Release */ = {
+		9A6DDB42C29F345240CBBBDAE524D4A6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 63C4FA83241BF534CDFFA2B7D134B4BE /* BlockstackCoreApi.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BD8C3E2BCEFB2FD579DF93FF955DFD7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0A9639019D93FA65BC8171C9B26E4D8 /* Pods-BlockstackCoreApi_Example.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/BlockstackCoreApi/BlockstackCoreApi-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/BlockstackCoreApi/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-BlockstackCoreApi_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/BlockstackCoreApi/BlockstackCoreApi.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = BlockstackCoreApi;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BlockstackCoreApi_Example/Pods-BlockstackCoreApi_Example.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BlockstackCoreApi_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
-				SWIFT_VERSION = 4.0;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		F32AE0FA5E1D391374A93BE1E8F67080 /* Release */ = {
+		E63D5251555B1256CF9B9078F8D200B8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1CFC7AEE9C4D33E3619CA6463BE9D28D /* Pods-BlockstackCoreApi_Example.release.xcconfig */;
 			buildSettings = {
@@ -730,7 +672,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Target Support Files/Pods-BlockstackCoreApi_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-BlockstackCoreApi_Example/Pods-BlockstackCoreApi_Example.modulemap";
@@ -743,12 +685,48 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		F9FC3B7BB06BBCAE40C8D52C19F0EB4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 862AB20FE87B33266294A868E4AF1C27 /* Pods-BlockstackCoreApi_Tests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-BlockstackCoreApi_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BlockstackCoreApi_Tests/Pods-BlockstackCoreApi_Tests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BlockstackCoreApi_Tests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -756,26 +734,26 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A6A03C9B1314C05BD3C2FBD3F65EDF83 /* Debug */,
-				717E77604BFBB04BEAF56608A1CB2EDE /* Release */,
+				4CAC2AB32206B6600685039F3523A5C9 /* Debug */,
+				9A6DDB42C29F345240CBBBDAE524D4A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52D4698C1F752844897053F86E96CE5C /* Build configuration list for PBXNativeTarget "Pods-BlockstackCoreApi_Example" */ = {
+		A575577A14E3F7A3C7D864A51D830D74 /* Build configuration list for PBXNativeTarget "BlockstackCoreApi-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				54B79E2EFF69920877150CE61197EE0D /* Debug */,
-				F32AE0FA5E1D391374A93BE1E8F67080 /* Release */,
+				612CFF2667D80DD764D463D044475F7E /* Debug */,
+				3AA24DFE4A4FD13601C034CED1E13203 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		752CF4654D2324E63BD95EDCEF392A96 /* Build configuration list for PBXNativeTarget "BlockstackCoreApi" */ = {
+		F4AC23BD4B4F2135177F34BBDF51DFF7 /* Build configuration list for PBXNativeTarget "Pods-BlockstackCoreApi_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B535009B1BEF19B1E8AAAC309BDFD83D /* Debug */,
-				C724A21986E0988D448DA359E0B2D323 /* Release */,
+				BD8C3E2BCEFB2FD579DF93FF955DFD7F /* Debug */,
+				E63D5251555B1256CF9B9078F8D200B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -783,8 +761,8 @@
 		FB03B58628BDEC7F6D87356CC2AF0D12 /* Build configuration list for PBXNativeTarget "Pods-BlockstackCoreApi_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AC71EE9F6F697B3457E1FE4F67E96733 /* Debug */,
-				A6CA320C90F7C04FFE45CCA57D53CCCF /* Release */,
+				F9FC3B7BB06BBCAE40C8D52C19F0EB4A /* Debug */,
+				5E082A87DB63257B2430A6223C2D7B53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

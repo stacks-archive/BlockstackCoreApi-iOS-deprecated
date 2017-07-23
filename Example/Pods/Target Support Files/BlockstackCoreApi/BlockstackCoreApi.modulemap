@@ -1,6 +1,0 @@
-framework module BlockstackCoreApi {
-  umbrella header "BlockstackCoreApi-umbrella.h"
-
-  export *
-  module * { export * }
-}

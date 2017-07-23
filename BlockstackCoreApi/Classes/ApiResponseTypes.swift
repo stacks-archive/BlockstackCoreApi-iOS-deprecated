@@ -27,6 +27,7 @@ public struct SearchResponse : Serializable
     public struct SearchResult : Serializable
     {
         public var profile : Profile
+        public var username : String
     }
     
 }
@@ -39,6 +40,27 @@ public struct OneNameSearchResponse : Serializable
     {
         public var profile : OneNameProfile?
         public var username : String?
+    }
+}
+
+public struct Profile : Serializable
+{
+    public var account : [Account]
+    public var description : String
+    public var address : Address?
+    public var image : [Image]?
+    public var name : String
+    public var website : [UrlContainer]?
+    
+    public struct Address : Serializable
+    {
+        public var addressLocality : String
+    }
+    
+    public struct Image : Serializable
+    {
+        public var contentUrl : String
+        public var name : String
     }
 }
 
@@ -55,18 +77,6 @@ public struct OneNameProfile: Serializable
 
 
 
-public struct Profile : Serializable
-{
-    public var account : [Account]
-    public var address : Address
-    public var description : String
-    
-    public struct Address : Serializable
-    {
-        public var addressLocality : String
-    }
-}
-
 public struct Account : Serializable
 {
     public var identifier : String
@@ -80,25 +90,6 @@ public struct Account : Serializable
 public struct ProfileResponse : Serializable
 {
     public var profile : Profile
-    
-    public struct Profile : Serializable
-    {
-        public var account : [Account]
-        public var description : String
-        public var address : Address
-        public var image : [Image]
-        
-        public struct Address : Serializable
-        {
-            public var addressLocality : String
-        }
-        
-        public struct Image : Serializable
-        {
-            public var contentUrl : String
-            public var name : String
-        }
-    }
 }
 
 public struct UrlContainer : Serializable{

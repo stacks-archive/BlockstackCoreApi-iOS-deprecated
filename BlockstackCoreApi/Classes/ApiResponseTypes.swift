@@ -57,6 +57,14 @@ public struct Profile : Serializable
     public var name : String?
     public var website : [UrlContainer]?
     
+    
+    //helpers
+    public func bitcoinAddress() -> String?
+    {
+        return account.filter({$0.service ?? "" == Account.ServiceType.bitcoin.rawValue}).first?.identifier
+    }
+    
+    //nested types
     public struct Address : Serializable
     {
         //default initializer
@@ -101,6 +109,14 @@ public struct Account : Serializable
     public var proofType : String?
     public var role : String?
     public var proofUrl : String?
+    
+    public enum ServiceType : String
+    {
+        case bitcoin = "bitcoin"
+        case facebook = "facebook"
+        case twitter = "twitter"
+        case github = "github"
+    }
 }
 
 //MARK: Profile

@@ -1,4 +1,6 @@
 use_frameworks!
+platform :ios, '10.0'
+
 
 target 'BlockstackCoreApi_Example' do
   pod 'BlockstackCoreApi-iOS', :path => '../'

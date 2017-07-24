@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import BlockstackCoreApi
+import BlockstackCoreApi_iOS
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

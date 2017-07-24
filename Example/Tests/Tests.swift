@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-import BlockstackCoreApi
+//import BlockstackCoreApi_iOS
 
 class Tests: XCTestCase {
     

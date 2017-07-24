@@ -45,22 +45,35 @@ public struct OneNameSearchResponse : Serializable
 
 public struct Profile : Serializable
 {
-    public var account : [Account]
-    public var description : String
+    //default initializer
+    public init() {
+    }
+    
+    //fields
+    public var account : [Account] = []
+    public var description : String?
     public var address : Address?
     public var image : [Image]?
-    public var name : String
+    public var name : String?
     public var website : [UrlContainer]?
     
     public struct Address : Serializable
     {
-        public var addressLocality : String
+        //default initializer
+        public init() {}
+        
+        //fields
+        public var addressLocality : String?
     }
     
     public struct Image : Serializable
     {
-        public var contentUrl : String
-        public var name : String
+        //default initializer
+        public init() {}
+        
+        //fields
+        public var contentUrl : String?
+        public var name : String?
     }
 }
 
@@ -79,8 +92,12 @@ public struct OneNameProfile: Serializable
 
 public struct Account : Serializable
 {
-    public var identifier : String
-    public var service : String
+    //default initializer
+    public init() {}
+    
+    //fields
+    public var identifier : String?
+    public var service : String?
     public var proofType : String?
     public var role : String?
     public var proofUrl : String?
@@ -93,17 +110,29 @@ public struct ProfileResponse : Serializable
 }
 
 public struct UrlContainer : Serializable{
-    public var url : String?
+    //default initializer
+    public init(url : String) {self.url = url}
+    
+    //fields
+    public var url : String
 }
 
 public struct AddressContainer : Serializable
 {
-    public var address : String?
+    //default initializer
+    public init(address: String) {self.address = address}
+    
+    //fields
+    public var address : String
 }
 
 public struct FormatContainer : Serializable
 {
-    public var formatted : String?
+    //default initializer
+    public init(formatted : String) {self.formatted = formatted}
+    
+    //fields
+    public var formatted : String
 }
 
 

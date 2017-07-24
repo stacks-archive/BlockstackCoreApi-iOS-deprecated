@@ -9,7 +9,7 @@
 // each row performs a call and displays the results
 
 import UIKit
-import BlockstackCoreApi
+import BlockstackCoreApi_iOS
 
 class ApiBrowserController: UITableViewController {
     

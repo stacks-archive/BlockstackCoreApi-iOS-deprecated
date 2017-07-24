@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import BlockstackCoreApi
+import BlockstackCoreApi_iOS
 
 class MainViewController: UIViewController {
     

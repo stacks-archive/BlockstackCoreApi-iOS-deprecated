@@ -25,6 +25,8 @@ pod "BlockstackCoreApi-iOS"
 ```
 
 ## Usage - Authorization
+Complete these setup steps if your app uses Blockstack Authorization.
+
 1- create a unique custom url schema for your app to handle auth callbacks from blockstack.
 In your info.plist, you must add the following entry allowing the blockstack app to open your application after authorization.
 You must also add a blockstack callback url parameter.

@@ -110,7 +110,7 @@ extension BrowserAuth{
                 let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems,
                 let token = queryItems.filter({ $0.name == "authResponse"}).first?.value,
                 let decoded = TokenSigner.decodeUnsecured(responseData: token),
-                let username = decoded["username"] as? String
+                let username = decoded["token"] as? String
             {
                 handler(username)
                 return true

@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //in order to complete the authorization process we must call the browser auth openURL method so it may
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        if let scheme = url.scheme, scheme.contains("bs")
+        if let scheme = url.scheme, scheme.contains("bsk")
         {
             return BrowserAuth.application(app, open: url, options: options)
         }

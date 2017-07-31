@@ -94,7 +94,7 @@ extension BrowserAuth {
             "public_keys" : [publicKey],
             "domain_name" : redirect,
             "manifest_uri" : fakeManifestUri,
-            "manifest" : manifest,
+            "manifest" : String(data: manifest.serialize()!, encoding : .utf8) as Any,
             "redirect_uri" : redirect,
             "scopes" : scopes.map({$0.rawValue})]
         return unsigned

@@ -53,3 +53,23 @@ public struct AuthResponse : Serializable
         }
     }
 }
+
+//public struct AuthRequest : Serializable
+//{
+//    public var jti : String
+//    public var iat : Double
+//    public var exp : Double
+//    public var iss : String
+//    public var public_keys : [String]
+//    public var domain_name : String
+//    public var manifest_uri : String
+//    public var manifest : AppManifest
+//    public var redirect_uri : String
+//    public var scopes : [String]
+//
+//    init(){
+//
+//    }
+//}
+
+

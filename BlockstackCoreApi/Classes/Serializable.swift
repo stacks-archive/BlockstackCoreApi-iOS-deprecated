@@ -17,13 +17,13 @@ protocol Serializable : Codable {
 
 extension Serializable
 {
-    func serialize() -> Data?
+    public func serialize() -> Data?
     {
         let encoder = JSONEncoder()
         return try? encoder.encode(self)
     }
     
-    static func deserialize(from data : Data?) -> Self?
+    public static func deserialize(from data : Data?) -> Self?
     {
         guard let data = data else {
             return nil
@@ -33,7 +33,7 @@ extension Serializable
         return try? decoder.decode(Self.self, from: data)
     }
     
-    static func deserializeArray(from data : Data?) -> [Self]?
+    public static func deserializeArray(from data : Data?) -> [Self]?
     {
         guard let data = data else {
             return nil

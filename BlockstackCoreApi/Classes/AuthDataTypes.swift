@@ -14,6 +14,11 @@ public struct AppManifest : Serializable
     public var iconUrl : String?
     public var themeColorHex : String = "#000000"
     public var backgroundColorHex : String = "#ffffff"
+    
+    public init()
+    {
+        
+    }
 }
 
 public struct AuthResponse : Serializable
@@ -32,6 +37,8 @@ public struct AuthResponse : Serializable
         public var description : String?
         public var image : [Image] = []
         public var address : Address?
+        
+        
         
         public struct Account : Serializable
         {

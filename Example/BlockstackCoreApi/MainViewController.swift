@@ -23,6 +23,10 @@ class MainViewController: UIViewController {
             return
         }
         
+        //set our manifest values
+        BrowserAuth.manifest.name = "Blockstack Core Api"
+        BrowserAuth.manifest.shortName = "Core"
+        
         //perform an authorization with a random ID and the app name.
         //alert the user of the result
         BrowserAuth.authorize() { (token) in

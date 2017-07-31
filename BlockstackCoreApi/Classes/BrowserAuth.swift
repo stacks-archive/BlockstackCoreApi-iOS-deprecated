@@ -18,6 +18,9 @@ public class BrowserAuth: NSObject {
     
     //a retained response handler that is called after the auth callback
     private static var responseHandler : ((String?) -> Void)?
+    
+    public static var manifest : AppManifest = AppManifest()
+
 }
 
 //MARK: Main Authorization methods
@@ -80,7 +83,7 @@ extension BrowserAuth {
         
         //TODO: the old app requires a manifest Uri to be passed in, but a local app cannot service
         //a file in this manner. This needs to be able to be passed in directly.
-        let fakeManifestUri = "https://s3.amazonaws.com/bedkin-misc-files/test_manifest.json"
+        let fakeManifestUri = "" //"https://s3.amazonaws.com/bedkin-misc-files/test_manifest.json"
         
         //create and return our payload
         let unsigned : [String : Any] = [
@@ -91,6 +94,7 @@ extension BrowserAuth {
             "public_keys" : [publicKey],
             "domain_name" : redirect,
             "manifest_uri" : fakeManifestUri,
+            "manifest" : manifest,
             "redirect_uri" : redirect,
             "scopes" : scopes.map({$0.rawValue})]
         return unsigned
@@ -174,7 +178,7 @@ extension BrowserAuth
     }
     
     static func generateAndStoreAppKey() -> String{
-        //TODO:
+        //TODO: Implement
         // const keyPair = new ECPair.makeRandom({ rng: getEntropy })
         //return keyPair.d.toBuffer(32).toString('hex')
         

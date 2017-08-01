@@ -27,43 +27,6 @@ public struct AuthResponse : Serializable
     public var authResponseToken : String!
     
     public init(){}
-    
-    public struct Profile : Serializable
-    {
-        public var account : [Account] = []
-        public var givenName : String?
-        public var familyName : String?
-        public var description : String?
-        public var image : [Image] = []
-        public var address : Address?
-        
-        public init(){}
-        
-        public struct Account : Serializable
-        {
-            public var identifier : String!
-            public var service : String!
-            public var contentUrl : String?
-            
-            public init(){}
-        }
-        
-        public struct Image : Serializable
-        {
-            public var name : String?
-            public var contentUrl : String!
-            
-            public init(){}
-        }
-        
-        public struct Address : Serializable
-        {
-            public var addressLocality : String?
-            public var addressCountry : String?
-            
-            public init(){}
-        }
-    }
 }
 
 public struct AuthRequest : Serializable
@@ -81,5 +44,4 @@ public struct AuthRequest : Serializable
     
     public init(){}
 }
-
 

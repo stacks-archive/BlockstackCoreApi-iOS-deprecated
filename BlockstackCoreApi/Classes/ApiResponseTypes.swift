@@ -52,6 +52,8 @@ public struct Profile : Serializable
     //fields
     public var account : [Account] = []
     public var description : String?
+    public var givenName : String?
+    public var familyName : String?
     public var address : Address?
     public var image : [Image]?
     public var name : String?
@@ -109,6 +111,7 @@ public struct Account : Serializable
     public var proofType : String?
     public var role : String?
     public var proofUrl : String?
+    public var contentUrl : String?
     
     public enum ServiceType : String
     {

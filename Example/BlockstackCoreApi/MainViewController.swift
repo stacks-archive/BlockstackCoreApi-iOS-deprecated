@@ -29,10 +29,26 @@ class MainViewController: UIViewController {
         
         //perform an authorization with a random ID and the app name.
         //alert the user of the result
-        BrowserAuth.authorize() { (token) in
-                if let token = token
+        BrowserAuth.authorize() { (response) in
+                if let response = response
                 {
-                    let alert = UIAlertController(title: "Authorization Successful", message: "Blockstack access granted with Token:\n\(token)", preferredStyle: .alert)
+                    var userDescription = ""
+                    if let name = response.username
+                    {
+                        userDescription = name
+                    }
+                    else if let name = response.profile.givenName
+                    {
+                        userDescription = name
+                    }
+                    else if let address = response.profile.account.first?.identifier, let service = response.profile.account.first?.service
+                    {
+                        userDescription = "\(service): \(address)"
+                    }else{
+                        userDescription = response.authResponseToken
+                    }
+                    
+                    let alert = UIAlertController(title: "Authorization Successful", message: "Blockstack access granted:\n\(userDescription)", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
                         
                     }))

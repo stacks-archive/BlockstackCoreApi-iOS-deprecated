@@ -17,7 +17,7 @@ public class BrowserAuth: NSObject {
     }
     
     //a retained response handler that is called after the auth callback
-    private static var responseHandler : ((String?) -> Void)?
+    private static var responseHandler : ((AuthResponse?) -> Void)?
     
     public static var manifest : AppManifest = AppManifest()
 
@@ -37,7 +37,7 @@ extension BrowserAuth {
     //resulting token it will retain the completion handler to be called after
     //authorizatin and open the block stack app
     public static func authorize(scopes : [Scope] = [.storeWrite],
-                                 handler : @escaping (String?) -> Void)
+                                 handler : @escaping (AuthResponse?) -> Void)
     {
         //ensure the app is installed
         guard canAuthorize() == true else {
@@ -50,8 +50,8 @@ extension BrowserAuth {
         let publicKey = derivePublicKey(privateKey: privateKey)
         
         //create our signed auth request params
-        guard let unsigned = makeAuthRequest(publicKey: publicKey, scopes: scopes),
-            let signed = TokenSigner.sign(requestData: unsigned, privateKey: privateKey) else
+        guard let unsigned = makeAuthRequest(publicKey: publicKey, scopes: scopes)?.serialize(),
+            let signed = TokenSigner.signData(requestData: unsigned, privateKey: privateKey) else
         {
             handler(nil)
             return
@@ -71,7 +71,7 @@ extension BrowserAuth {
     }
     
     //create a dictionary containing our request data to send to the blockstack app
-    public static func makeAuthRequest(publicKey: String, scopes : [Scope]) -> [String: Any]?
+    public static func makeAuthRequest(publicKey: String, scopes : [Scope]) -> AuthRequest?
     {
         guard let redirect = Bundle.main.infoDictionary?["BlockstackCompletionUri"] as? String else
         {
@@ -85,19 +85,21 @@ extension BrowserAuth {
         //a file in this manner. This needs to be able to be passed in directly.
         let fakeManifestUri = "" //"https://s3.amazonaws.com/bedkin-misc-files/test_manifest.json"
         
+        var request = AuthRequest()
+        
         //create and return our payload
-        let unsigned : [String : Any] = [
-            "jti" : makeUUID4(),
-            "iat" : Date().timeIntervalSince1970,
-            "exp" : Date().addingTimeInterval(60).timeIntervalSince1970,
-            "iss" : did,
-            "public_keys" : [publicKey],
-            "domain_name" : redirect,
-            "manifest_uri" : fakeManifestUri,
-            "manifest" : String(data: manifest.serialize()!, encoding : .utf8) as Any,
-            "redirect_uri" : redirect,
-            "scopes" : scopes.map({$0.rawValue})]
-        return unsigned
+        request.jti = makeUUID4()
+        request.iat = Date().timeIntervalSince1970
+        request.exp  = Date().addingTimeInterval(60).timeIntervalSince1970
+        request.iss = did
+        request.public_keys = [publicKey]
+        request.domain_name = redirect
+        request.manifest_uri = fakeManifestUri
+        request.manifest = manifest
+        request.redirect_uri = redirect
+        request.scopes = scopes.map({$0.rawValue})
+        
+        return request
     }
 }
 
@@ -113,10 +115,10 @@ extension BrowserAuth{
             if let handler = responseHandler,
                 let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems,
                 let token = queryItems.filter({ $0.name == "authResponse"}).first?.value,
-                let decoded = TokenSigner.decodeUnsecured(responseData: token),
-                let username = decoded["token"] as? String
+                let decoded = TokenSigner.decodeToDataUnsecured(responseData: token),
+                let response = AuthResponse.deserialize(from: decoded)
             {
-                handler(username)
+                handler(response)
                 return true
             }
         return false

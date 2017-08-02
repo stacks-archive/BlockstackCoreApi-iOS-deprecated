@@ -11,10 +11,26 @@ import BlockstackCoreApi_iOS
 
 class MainViewController: UIViewController {
     
+    @IBOutlet var titleLabel : UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setDisplayLabel()
+    }
+    
+    func setDisplayLabel()
+    {
+        if let currentUserName = BlockstackAuth.currentUserProfile()?.name ?? BlockstackAuth.currentUserProfile()?.givenName
+        {
+            titleLabel.text = "Logged in as: \(currentUserName)"
+        }
+    }
+    
     @IBAction func authorize()
     {
         //verify blockstack is installed.
-        guard (BrowserAuth.canAuthorize() == true) else
+        guard (BlockstackAuth.canAuthorize() == true) else
         {
             let alert = UIAlertController(title: "Blockstack Not Installed", message: "You must install the Blockstack Browser App in order to get authorization.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
@@ -24,12 +40,12 @@ class MainViewController: UIViewController {
         }
         
         //set our manifest values
-        BrowserAuth.manifest.name = "Blockstack Core Api"
-        BrowserAuth.manifest.shortName = "Core"
+        BlockstackAuth.manifest.name = "Blockstack Core Api"
+        BlockstackAuth.manifest.shortName = "Core"
         
         //perform an authorization with a random ID and the app name.
         //alert the user of the result
-        BrowserAuth.authorize() { (response) in
+        BlockstackAuth.authorize() { (response) in
                 if let response = response
                 {
                     var userDescription = ""
@@ -48,6 +64,7 @@ class MainViewController: UIViewController {
                         userDescription = response.authResponseToken
                     }
                     
+                    self.setDisplayLabel()
                     let alert = UIAlertController(title: "Authorization Successful", message: "Blockstack access granted:\n\(userDescription)", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
                         

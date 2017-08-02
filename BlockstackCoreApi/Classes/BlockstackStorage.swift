@@ -24,17 +24,20 @@ public class BlockstackStorage
     {
         
     }
+
     
-    //TODO: Implement
+    //TODO: Implement with the real storage provider, not just user defaults
     public func writeToStorage(resourceIdentifier : String, data : Data, handler : StorageCompletionHandler)
     {
+        UserDefaults.standard.set(data, forKey: resourceIdentifier)
+        UserDefaults.standard.synchronize()
         handler(data, nil)
     }
     
-    //TODO: Implement
+    //TODO: Implement with the real storage provider, not just user defaults
     public func readFromStorage(resourceIdentifier : String, handler : StorageCompletionHandler)
     {
-        handler(nil, nil)
+        handler(UserDefaults.standard.data(forKey: resourceIdentifier), nil)
     }
 }
 

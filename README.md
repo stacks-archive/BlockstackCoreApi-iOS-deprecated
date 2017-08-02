@@ -15,6 +15,7 @@ This project uses Swift 4 and will only run on XCode 9+ (in beta at the time of 
 
 For a swift 3 compatible version, please see release v0.1.9
 
+
 ## Installation
 
 BlockstackCoreApi is available through [CocoaPods](http://cocoapods.org). To install
@@ -26,6 +27,8 @@ pod "BlockstackCoreApi-iOS"
 
 ## Usage - Authorization
 Complete these setup steps if your app uses Blockstack Authorization.
+
+### Set up
 
 1- create a unique custom url schema for your app to handle auth callbacks from blockstack.
 In your info.plist, you must add the following entry allowing the blockstack app to open your application after authorization.
@@ -60,7 +63,7 @@ You must also add a blockstack callback url parameter.
 func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
     if let scheme = url.scheme, scheme.contains("bsk")
     {
-        return BrowserAuth.application(app, open: url, options: options)
+        return BlockstackAuth.application(app, open: url, options: options)
     }
     return false
 }
@@ -69,22 +72,66 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpe
 4- Now, you may verify the blockstack app is installed and that authorization can be completed with:
 ```
 //verify blockstack is installed.
-guard BrowserAuth.canAuthorize() == true else
+guard BlockstackAuth.canAuthorize() == true else
 {
     return
 }
 ```
 For more info on install the portal application see: https://github.com/BedKin/BlockstackBrowser-ios
 
-5- To call blockstack for authorization:
+### Authorize
+To call blockstack for authorization:
 ```
-BrowserAuth.authorize() { (token) in
+BlockstackAuth.authorize() { (token) in
     if let token = token
     {
         //app authorized. Use the provided token
     }
 }
 ```
+
+To Log out
+```
+BlockstackAuth.logout()
+```
+
+To get the current user profile and name after login
+```
+if let name = BlockstackAuth.currentUserProfile()?.name
+{
+    //display user name
+}
+```
+
+### Read and write data after log in
+
+```
+//check that we are logged in and serialize some object into data then write it to storage
+if BlockstackAuth.loggedIn() == true, let data = myDataObject.serialize()
+{
+    BlockstackStorage.shared().writeToStorage(resourceIdentifier: "MY_DATA_FILE", data: data , handler: { (writtenData, error) in
+        if let _ = writtenData
+        {
+            //the data was written to file
+        }
+    }
+})
+```
+
+```
+//check that we are logged in, and if so then read our data from storage and then deserialize it into
+//our data object
+if BlockstackAuth.loggedIn() == true
+{
+    BlockstackStorage.shared().readFromStorage(resourceIdentifier: "MY_DATA_FILE", handler: { (readData, error) in
+        if let deserialized = Object.deserialize(from: readData)
+        {
+            //our data has been read and objects deserialized
+        }
+    })
+}
+```
+
 
 ## Usage Core API
 
@@ -142,7 +189,7 @@ func userProfile(){
 }
 
 func search(){
-    CoreApi.search(query: "ja") { (result, error) in }
+    CoreApi.search(query: "taylor") { (result, error) in }
 }
 ```
 

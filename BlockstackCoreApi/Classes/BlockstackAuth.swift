@@ -1,11 +1,11 @@
 //
-//  BrowserAuth.swift
+//  BlockstackAuth.swift
 //  BlockstackCoreApi
 //
 //  Created by lsease on 6/26/17.
 //  This class is called by a 3rd party application to check to authorize the app with blockstack.
 
-public class BrowserAuth: NSObject {
+public class BlockstackAuth: NSObject {
     
     static let blockstackUrl = "blockstack://auth"
     //static let blockstackUrl = "http://localhost:8888/auth"
@@ -20,11 +20,13 @@ public class BrowserAuth: NSObject {
     private static var responseHandler : ((AuthResponse?) -> Void)?
     
     public static var manifest : AppManifest = AppManifest()
-
+    public static var authResponse : AuthResponse?
+    public static var authLoadAttempted = false
+    
 }
 
 //MARK: Main Authorization methods
-extension BrowserAuth {
+extension BlockstackAuth {
     
     //determine if we can authorize the app, which will tell us if blockstack is installed.
     public static func canAuthorize() -> Bool
@@ -101,23 +103,72 @@ extension BrowserAuth {
         
         return request
     }
+    
+    public static func logout()
+    {
+        if authLoadAttempted == false
+        {
+            loadAuth()
+        }
+        
+        authResponse = nil
+        saveAuth()
+    }
+    
+    public static func loggedIn() -> Bool
+    {
+        if authLoadAttempted == false
+        {
+            loadAuth()
+        }
+        
+        return authResponse != nil
+    }
+    
+    public static func currentUserProfile() -> Profile?
+    {
+        if authLoadAttempted == false
+        {
+            loadAuth()
+        }
+        
+        return authResponse?.profile
+    }
+    
+    private static func saveAuth()
+    {
+        UserDefaults.standard.set(authResponse?.serialize(), forKey: "BLOCKSTACK_AUTH_RESPONSE")
+        UserDefaults.standard.synchronize()
+    }
+    
+    private static func loadAuth()
+    {
+        authLoadAttempted = true
+        if let authData = UserDefaults.standard.data(forKey: "BLOCKSTACK_AUTH_RESPONSE"),
+            let response = AuthResponse.deserialize(from: authData)
+        {
+            authResponse = response
+        }
+    }
 }
 
 //MARK: Authorization Callbacks
-extension BrowserAuth{
+extension BlockstackAuth{
     
     //this method must be called by the authorization seeking app on open URL.
     //It will parse the token from the url
     //and call the previously set completion handler
     public static func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
-            //TODO: decode the token
+            // decode the token and return
             if let handler = responseHandler,
                 let queryItems = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems,
                 let token = queryItems.filter({ $0.name == "authResponse"}).first?.value,
                 let decoded = TokenSigner.decodeToDataUnsecured(responseData: token),
                 let response = AuthResponse.deserialize(from: decoded)
             {
+                authResponse = response
+                saveAuth()
                 handler(response)
                 return true
             }
@@ -126,7 +177,7 @@ extension BrowserAuth{
 }
 
 //MARK: Helper methods.
-extension BrowserAuth
+extension BlockstackAuth
 {
     static func derivePublicKey(privateKey : String) -> String
     {

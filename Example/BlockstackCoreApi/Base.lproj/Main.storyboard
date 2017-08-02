@@ -49,6 +49,12 @@
                                     <action selector="authorize" destination="vXZ-lx-hvc" eventType="touchUpInside" id="o8p-Cj-oFt"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Blockstack" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElP-75-TPd">
+                                <rect key="frame" x="16" y="132" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -57,14 +63,21 @@
                             <constraint firstItem="SS0-Jy-Jhz" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Er2-tD-Kea"/>
                             <constraint firstItem="F6P-Nr-Wq3" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" constant="-30" id="ZuO-Du-EyD"/>
                             <constraint firstItem="F6P-Nr-Wq3" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="cSe-eS-zfz"/>
+                            <constraint firstItem="ElP-75-TPd" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="cUt-ns-VxU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ElP-75-TPd" secondAttribute="trailing" id="htW-ns-QOM"/>
                             <constraint firstItem="d26-uj-vBc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="n2X-EM-rYm"/>
                             <constraint firstItem="d26-uj-vBc" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="sgK-II-Gv4"/>
+                            <constraint firstItem="ElP-75-TPd" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="68" id="tGt-Lb-N8M"/>
                             <constraint firstItem="SS0-Jy-Jhz" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="tgc-A6-fxo"/>
+                            <constraint firstItem="ElP-75-TPd" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="vhg-x4-f9C"/>
                             <constraint firstItem="SS0-Jy-Jhz" firstAttribute="top" secondItem="F6P-Nr-Wq3" secondAttribute="bottom" constant="19.5" id="x03-dn-Faf"/>
                             <constraint firstItem="F6P-Nr-Wq3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="z22-T2-6c3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XOE-G0-PdT"/>
+                    <connections>
+                        <outlet property="titleLabel" destination="ElP-75-TPd" id="Cmx-t3-tDU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

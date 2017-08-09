@@ -18,9 +18,5 @@ class OutlineButton : UIButton
         self.layer.borderColor = self.tintColor.cgColor
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.titleLabel!.font = UIFont(name: "Lato-Bold", size: 18)
-    }
 }
 

@@ -10,6 +10,7 @@
 		0053ED171F0158A100E039E1 /* ApiBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0053ED161F0158A100E039E1 /* ApiBrowserController.swift */; };
 		008A13561F0403BD00C46D5F /* bs-background-blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 008A13551F0402C700C46D5F /* bs-background-blur.png */; };
 		008A13571F0403BF00C46D5F /* bs-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 008A13541F0402C700C46D5F /* bs-background.png */; };
+		00EC37101F3B5198003A1C4F /* OutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006DCFD01F1678D90037191E /* OutlineButton.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* MainViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -395,6 +396,7 @@
 			files = (
 				607FACD81AFB9204008FA782 /* MainViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				00EC37101F3B5198003A1C4F /* OutlineButton.swift in Sources */,
 				0053ED171F0158A100E039E1 /* ApiBrowserController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,6 +17,21 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         setDisplayLabel()
+        
+        let token = ["iat" : NSNumber(value: 1440713414.85)]
+        let privateKey = "278a5de700e29faae8e40e366ec5012b5ec63d36ec77e8a2417154cc1d25383f"
+        let publicKey = "03fdd57adec3d438ea237fe46b33ee1e016eda6b585c3e27ea66686c2ea5358479"
+        let signed = TokenSigner.shared().sign(tokenPayload: token, privateKey: privateKey)!
+        print("Signed : " + signed)
+        
+        let decoded = TokenSigner.shared().decodeToken(signed) as! [String : Any]
+        print("decoded : \(decoded)")
+        
+        let unsecured = TokenSigner.shared().createUnsecuredToken(tokenPayload: token)!
+        print("unsecured token : \(unsecured)")
+        
+        let verified = TokenSigner.shared().verify(token: signed, publicKey: publicKey)
+        print("verified : \(verified)")
     }
     
     func setDisplayLabel()

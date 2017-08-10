@@ -18,6 +18,11 @@ class MainViewController: UIViewController {
         
         setDisplayLabel()
         
+        testCrypto()
+    }
+    
+    func testSigning()
+    {
         let token = ["iat" : NSNumber(value: 1440713414.85)]
         let privateKey = "278a5de700e29faae8e40e366ec5012b5ec63d36ec77e8a2417154cc1d25383f"
         let publicKey = "03fdd57adec3d438ea237fe46b33ee1e016eda6b585c3e27ea66686c2ea5358479"
@@ -32,6 +37,19 @@ class MainViewController: UIViewController {
         
         let verified = TokenSigner.shared().verify(token: signed, publicKey: publicKey)
         print("verified : \(verified)")
+    }
+    
+    func testCrypto()
+    {
+        let pk = JWTUtils.shared().makeECPrivateKey()
+        let pubKey = JWTUtils.shared().derivePublicKey(privateKey: pk)
+        let did = JWTUtils.shared().makeDID(from: pubKey)
+        let uuid = JWTUtils.shared().makeUUID4()
+        
+        print("pk: \(pk)")
+        print("pubKey: \(pubKey)")
+        print("did: \(did)")
+        print("uuid: \(uuid)")
     }
     
     func setDisplayLabel()

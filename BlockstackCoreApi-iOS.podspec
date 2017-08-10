@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BlockstackCoreApi-iOS'
-  s.version          = '0.1.24'
+  s.version          = '0.1.25'
   s.summary          = 'A pod for interacting with blockstack core, core.blockstack.org'
 
 # This description is used to generate tags and improve search results.
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Logan Sease' => 'logan@bedkin.com' }
-  s.source           = { :git => 'https://github.com/bedkin/BlockstackCoreApi-iOS.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/casa/BlockstackCoreApi-iOS.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '9.0'
 

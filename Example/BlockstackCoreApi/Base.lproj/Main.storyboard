@@ -31,7 +31,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="IfC-MI-OIM"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.1215686275" green="0.76470588240000004" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="API Browser"/>
                                 <connections>
                                     <segue destination="BNH-6M-yS6" kind="show" id="yhW-5u-T6r"/>
@@ -43,7 +43,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="FRG-v5-Lch"/>
                                 </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.1215686275" green="0.76470588240000004" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Authorize"/>
                                 <connections>
                                     <action selector="authorize" destination="vXZ-lx-hvc" eventType="touchUpInside" id="o8p-Cj-oFt"/>

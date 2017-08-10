@@ -1,0 +1,63 @@
+
+if there are updates to the jsontokens-js library and someone were to wish to rebuild the js file contained in this project, follow the following steps:
+- `npm install -g create-react-app`
+- `create-react-app jsontoken-wrapper`
+- `cd jsontoken-wrapper`
+- `npm install --save bitcoinjs-lib jsontokens`
+- edit src/index.js to export any classes we need to global scope
+
+```
+import {TokenSigner} from 'jsontokens';
+import {TokenVerifier} from 'jsontokens';
+import {createUnsecuredToken} from 'jsontokens';
+import {decodeToken} from 'jsontokens';
+import {SECP256K1Client} from 'jsontokens';
+
+global.TokenSigner = TokenSigner;
+global.TokenVerifier = TokenVerifier;
+global.createUnsecuredToken = createUnsecuredToken;
+global.decodeToken = decodeToken;
+global.SECP256K1Client = SECP256K1Client;
+
+import './cryptoutils.js'
+```
+- create a file src/cryptoutils.js
+```
+import { ECPair, address as baddress, crypto as bcrypto } from 'bitcoinjs-lib'
+
+global.getEntropy = function (numberOfBytes: number) {
+    var charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var randomString = '';
+    for (var i = 0; i < numberOfBytes; i++) {
+    var randomPoz = Math.floor(Math.random() * charSet.length);
+        randomString += charSet.substring(randomPoz,randomPoz+1);
+    }
+    return Buffer.from(randomString)
+}
+
+global.makeECPrivateKey = function () {
+    const keyPair = new ECPair.makeRandom({ rng: global.getEntropy })
+    return keyPair.d.toBuffer(32).toString('hex')
+}
+
+global.publicKeyToAddress = function (publicKey: string) {
+    const publicKeyBuffer = new Buffer(publicKey, 'hex')
+    const publicKeyHash160 = bcrypto.hash160(publicKeyBuffer)
+    const address = baddress.toBase58Check(publicKeyHash160, 0x00)
+    return address
+}
+
+global.makeUUID4 = function () {
+    let d = new Date().getTime()
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+          const r = (d + Math.random() * 16) % 16 | 0
+          d = Math.floor(d / 16)
+          return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16)
+   })
+}
+
+```
+
+- `npm run build`
+- our new js file will be built into build/static/js
+- copy that file, named main.xxxx.js into this library overwriting the existing Resources/BlockstackCoreApi/Assets/jsontokens.js

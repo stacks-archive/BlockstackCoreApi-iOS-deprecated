@@ -214,7 +214,17 @@ let unsecured = TokenSigner.shared().createUnsecuredToken(tokenPayload: token)!
 let verified = TokenSigner.shared().verify(token: signed, publicKey: publicKey)
 ```
 
+# Usage JWTUtils
+A few important JWT / private / public key methods have been included in the javascript wrapper and can be accessed as follows
+```
+let pk = JWTUtils.shared().makeECPrivateKey()
+let pubKey = JWTUtils.shared().derivePublicKey(privateKey: pk)
+let did = JWTUtils.shared().makeDID(from: pubKey)
+let uuid = JWTUtils.shared().makeUUID4()
+```
 
+### jsontoken updates
+For info on how to rebuild the jsontokens.js file for updates to jsontokens-js see the file Resources/BlockstackCoreApi/Assets/howto-rebuild-jsontoken.txt
 
 ## Author
 

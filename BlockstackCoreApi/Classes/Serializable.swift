@@ -13,10 +13,47 @@ protocol Serializable : Codable {
     func serialize() -> Data?
     static func deserialize(from data : Data?) -> Self?
     static func deserializeArray(from data : Data?) -> [Self]?
+    func toDictionary() -> [AnyHashable : Any]?
+    static func fromDictionary(_ dictionary : [AnyHashable : Any]) -> Self?
+    static func arrayFromDictionary(_ dictionary : [[AnyHashable : Any]]) -> [Self]?
 }
 
 extension Serializable
 {
+    public func toDictionary() -> [AnyHashable : Any]?
+    {
+        if let data = serialize()
+        {
+            if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [AnyHashable : Any]
+            {
+                return json
+            }
+        }
+        return nil
+    }
+    
+    public static func fromDictionary(_ dictionary : [AnyHashable : Any]) -> Self?
+    {
+        if let data = try? JSONSerialization.data(withJSONObject: dictionary, options: [])
+        {
+            return Self.deserialize(from: data)
+        }
+        return nil
+    }
+    
+    public static func arrayFromDictionary(_ dictionaries : [[AnyHashable : Any]]) -> [Self]?
+    {
+        var results : [Self] = []
+        for (dict) in dictionaries
+        {
+            if let object = fromDictionary(dict)
+            {
+                results.append(object)
+            }
+        }
+        return results
+    }
+    
     public func serialize() -> Data?
     {
         let encoder = JSONEncoder()

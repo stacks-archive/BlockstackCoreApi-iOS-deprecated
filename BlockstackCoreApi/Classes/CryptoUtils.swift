@@ -1,5 +1,5 @@
 //
-//  JWTUtils.swift
+//  CryptoUtils.swift
 //  BlockstackCoreApi-iOS
 //
 //  Created by lsease on 8/10/17.
@@ -9,15 +9,15 @@ import Foundation
 import JavaScriptCore
 import Security
 
-public class JWTUtils
+public class CryptoUtils
 {
     let context = TokenSigner.shared().context
     
     // shared instance
-    public class func shared() -> JWTUtils {
+    public class func shared() -> CryptoUtils {
         
         struct Singleton {
-            static let instance = JWTUtils()
+            static let instance = CryptoUtils()
         }
         return Singleton.instance
     }
@@ -62,6 +62,25 @@ public class JWTUtils
             print("Problem generating random bytes")
             return nil
         }
+    }
+    
+    //MARK: Passphrase
+    public func generatePassphrase() -> String
+    {
+        let result = context.evaluateScript("generateMnemonic()")!
+        return result.toString()
+    }
+    
+    public func validatePassphrase(_ passphrase: String) -> Bool
+    {
+        let result = context.evaluateScript("validateMnemonic('\(passphrase)')")!
+        return result.toBool()
+    }
+    
+    public func privateKey(from passphrase: String) -> String?
+    {
+        let result = context.evaluateScript("mnemonicToSeed('\(passphrase)')")!
+        return result.toString()
     }
     
     

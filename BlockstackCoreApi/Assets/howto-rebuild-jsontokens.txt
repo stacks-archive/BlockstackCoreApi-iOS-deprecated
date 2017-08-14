@@ -3,7 +3,7 @@ if there are updates to the jsontokens-js library and someone were to wish to re
 - `npm install -g create-react-app`
 - `create-react-app jsontoken-wrapper`
 - `cd jsontoken-wrapper`
-- `npm install --save bitcoinjs-lib jsontokens`
+- `npm install --save bitcoinjs-lib jsontokens bip39`
 - edit src/index.js to export any classes we need to global scope
 
 ```
@@ -24,12 +24,13 @@ import './cryptoutils.js'
 - create a file src/cryptoutils.js
 ```
 import { ECPair, address as baddress, crypto as bcrypto } from 'bitcoinjs-lib'
+import bip39 from 'bip39'
 
 global.getEntropy = function (numberOfBytes: number) {
     var charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var randomString = '';
     for (var i = 0; i < numberOfBytes; i++) {
-    var randomPoz = Math.floor(Math.random() * charSet.length);
+        var randomPoz = Math.floor(Math.random() * charSet.length);
         randomString += charSet.substring(randomPoz,randomPoz+1);
     }
     return Buffer.from(randomString)
@@ -50,10 +51,25 @@ global.publicKeyToAddress = function (publicKey: string) {
 global.makeUUID4 = function () {
     let d = new Date().getTime()
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
-          const r = (d + Math.random() * 16) % 16 | 0
-          d = Math.floor(d / 16)
-          return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16)
-   })
+        const r = (d + Math.random() * 16) % 16 | 0
+        d = Math.floor(d / 16)
+        return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16)
+    })
+}
+
+global.generateMnemonic = function()
+{
+    return bip39.generateMnemonic(128, global.getEntropy )
+}
+
+global.validateMnemonic = function (mnemonic: string)
+{
+    return bip39.validateMnemonic(mnemonic)
+}
+
+global.mnemonicToSeed = function(mnemonic: string)
+{
+    return bip39.mnemonicToSeedHex(mnemonic)
 }
 
 ```

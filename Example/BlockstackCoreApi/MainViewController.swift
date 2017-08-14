@@ -37,19 +37,32 @@ class MainViewController: UIViewController {
         
         let verified = TokenSigner.shared().verify(token: signed, publicKey: publicKey)
         print("verified : \(verified)")
+        
     }
     
     func testCrypto()
     {
-        let pk = JWTUtils.shared().makeECPrivateKey()
-        let pubKey = JWTUtils.shared().derivePublicKey(privateKey: pk)
-        let did = JWTUtils.shared().makeDID(from: pubKey)
-        let uuid = JWTUtils.shared().makeUUID4()
+        let pk = CryptoUtils.shared().makeECPrivateKey()
+        let pubKey = CryptoUtils.shared().derivePublicKey(privateKey: pk)
+        let did = CryptoUtils.shared().makeDID(from: pubKey)
+        let uuid = CryptoUtils.shared().makeUUID4()
         
         print("pk: \(pk)")
         print("pubKey: \(pubKey)")
         print("did: \(did)")
         print("uuid: \(uuid)")
+        
+        let passphrase = CryptoUtils.shared().generatePassphrase()
+        print("phrase : \(passphrase)")
+        
+        let verifiedPass = CryptoUtils.shared().validatePassphrase(passphrase)
+        print("verified pass: \(verifiedPass)")
+        
+        let passphraseKey = CryptoUtils.shared().privateKey(from: passphrase)
+        print("passphraseKey : \(passphraseKey!)")
+        
+        let passphraseKey2 = CryptoUtils.shared().privateKey(from: passphrase)
+        print("passphraseKey2 : \(passphraseKey2!)")
     }
     
     func setDisplayLabel()

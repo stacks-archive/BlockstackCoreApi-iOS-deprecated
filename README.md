@@ -212,15 +212,25 @@ let unsecured = TokenSigner.shared().createUnsecuredToken(tokenPayload: token)!
 
 //verify a signed token via public key
 let verified = TokenSigner.shared().verify(token: signed, publicKey: publicKey)
+
 ```
 
-# Usage JWTUtils
+# Usage CryptoUtils
 A few important JWT / private / public key methods have been included in the javascript wrapper and can be accessed as follows
 ```
-let pk = JWTUtils.shared().makeECPrivateKey()
-let pubKey = JWTUtils.shared().derivePublicKey(privateKey: pk)
-let did = JWTUtils.shared().makeDID(from: pubKey)
-let uuid = JWTUtils.shared().makeUUID4()
+let pk = CryptoUtils.shared().makeECPrivateKey()
+let pubKey = CryptoUtils.shared().derivePublicKey(privateKey: pk)
+let did = CryptoUtils.shared().makeDID(from: pubKey)
+let uuid = CryptoUtils.shared().makeUUID4()
+
+//generate a new recovery passphrase (from a new private key)
+let passphrase = CryptoUtils.shared().generatePassphrase()
+
+//verify a passphrase
+let verifiedPass = CryptoUtils.shared().validatePassphrase(passphrase)
+
+//get the private key from a generated pass phrase
+let passphraseKey = CryptoUtils.shared().privateKey(from: passphrase)
 ```
 
 ### jsontoken updates

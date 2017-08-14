@@ -49,7 +49,7 @@ extension BlockstackAuth {
         
         //generate private and public keys
         let privateKey = generateAndStoreAppKey()
-        let publicKey = JWTUtils.shared().derivePublicKey(privateKey: privateKey)
+        let publicKey = CryptoUtils.shared().derivePublicKey(privateKey: privateKey)
         
         //create our signed auth request params
         guard let unsigned = makeAuthRequest(publicKey: publicKey, scopes: scopes)?.toDictionary(),
@@ -87,10 +87,10 @@ extension BlockstackAuth {
         var request = AuthRequest()
         
         //create and return our payload
-        request.jti = JWTUtils.shared().makeUUID4()
+        request.jti = CryptoUtils.shared().makeUUID4()
         request.iat = Date().timeIntervalSince1970
         request.exp  = Date().addingTimeInterval(60).timeIntervalSince1970
-        request.iss = JWTUtils.shared().makeDID(from: publicKey)
+        request.iss = CryptoUtils.shared().makeDID(from: publicKey)
         request.public_keys = [publicKey]
         request.domain_name = redirect
         request.manifest_uri = fakeManifestUri
@@ -185,7 +185,7 @@ extension BlockstackAuth
         }
         
         //generate and save
-        let key = JWTUtils.shared().makeECPrivateKey()
+        let key = CryptoUtils.shared().makeECPrivateKey()
         UserDefaults.standard.set(key, forKey: "BLOCKSTACK_PRIVATE_KEY")
         UserDefaults.standard.synchronize()
         return key

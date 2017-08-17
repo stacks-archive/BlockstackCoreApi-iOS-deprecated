@@ -38,7 +38,6 @@ class MainViewController: UIViewController {
         
         let verified = TokenSigner.shared().verify(token: signed, publicKey: publicKey)
         print("verified : \(verified)")
-        
     }
     
     func testCrypto()

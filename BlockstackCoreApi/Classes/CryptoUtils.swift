@@ -64,6 +64,12 @@ public class CryptoUtils
         }
     }
     
+    public func address(from publicKey : String) -> String
+    {
+        let result = context.evaluateScript("publicKeyToAddress('\(publicKey)')")
+        return result!.toString()!
+    }
+    
     //MARK: Passphrase
     public func generatePassphrase() -> String
     {
@@ -79,7 +85,7 @@ public class CryptoUtils
     
     public func privateKey(from passphrase: String) -> String?
     {
-        let result = context.evaluateScript("mnemonicToSeed('\(passphrase)')")!
+        let result = context.evaluateScript("mnemonicToPrivateKey('\(passphrase)')")!
         return result.toString()
     }
     

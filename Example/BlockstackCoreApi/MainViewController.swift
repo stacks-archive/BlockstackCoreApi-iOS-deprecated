@@ -45,10 +45,12 @@ class MainViewController: UIViewController {
         let pk = CryptoUtils.shared().makeECPrivateKey()
         let pubKey = CryptoUtils.shared().derivePublicKey(privateKey: pk)
         let did = CryptoUtils.shared().makeDID(from: pubKey)
+        let address = CryptoUtils.shared().address(from: pubKey)
         let uuid = CryptoUtils.shared().makeUUID4()
         
         print("pk: \(pk)")
         print("pubKey: \(pubKey)")
+        print("address \(address)")
         print("did: \(did)")
         print("uuid: \(uuid)")
         
@@ -58,11 +60,11 @@ class MainViewController: UIViewController {
         let verifiedPass = CryptoUtils.shared().validatePassphrase(passphrase)
         print("verified pass: \(verifiedPass)")
         
-        let passphraseKey = CryptoUtils.shared().privateKey(from: passphrase)
-        print("passphraseKey : \(passphraseKey!)")
+        let phrasePk = CryptoUtils.shared().privateKey(from: passphrase)
+        print("phrasePk : \(phrasePk!)")
         
-        let passphraseKey2 = CryptoUtils.shared().privateKey(from: passphrase)
-        print("passphraseKey2 : \(passphraseKey2!)")
+        let phrasePubKey = CryptoUtils.shared().derivePublicKey(privateKey: phrasePk!)
+        print("phrasePubKey : \(phrasePubKey)")
     }
     
     func setDisplayLabel()

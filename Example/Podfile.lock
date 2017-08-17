@@ -1,5 +1,27 @@
 PODS:
-  - BlockstackCoreApi-iOS (0.1.24)
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - BlockstackCoreApi-iOS (0.1.26):
+    - AFNetworking (~> 2.3)
 
 DEPENDENCIES:
   - BlockstackCoreApi-iOS (from `../`)
@@ -9,7 +31,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  BlockstackCoreApi-iOS: c49df6d14e83a207fed26888dab7577b7e0b1f53
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  BlockstackCoreApi-iOS: 710d3720ea92a7f61076403cd0013432c5f4b919
 
 PODFILE CHECKSUM: 92f082bccae3747995245a44ed4848b0f7fb7279
 

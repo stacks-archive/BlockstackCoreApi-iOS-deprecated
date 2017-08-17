@@ -222,6 +222,7 @@ let pk = CryptoUtils.shared().makeECPrivateKey()
 let pubKey = CryptoUtils.shared().derivePublicKey(privateKey: pk)
 let did = CryptoUtils.shared().makeDID(from: pubKey)
 let uuid = CryptoUtils.shared().makeUUID4()
+let address = CryptoUtils.shared().address(from: pubKey)
 
 //generate a new recovery passphrase (from a new private key)
 let passphrase = CryptoUtils.shared().generatePassphrase()

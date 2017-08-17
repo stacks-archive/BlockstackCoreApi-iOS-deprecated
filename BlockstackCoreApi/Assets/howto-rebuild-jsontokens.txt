@@ -3,7 +3,7 @@ if there are updates to the jsontokens-js library and someone were to wish to re
 - `npm install -g create-react-app`
 - `create-react-app jsontoken-wrapper`
 - `cd jsontoken-wrapper`
-- `npm install --save bitcoinjs-lib jsontokens bip39`
+- `npm install --save bitcoinjs-lib jsontokens bip39 bitcoinjs-lib`
 - edit src/index.js to export any classes we need to global scope
 
 ```
@@ -25,6 +25,7 @@ import './cryptoutils.js'
 ```
 import { ECPair, address as baddress, crypto as bcrypto } from 'bitcoinjs-lib'
 import bip39 from 'bip39'
+import { HDNode } from 'bitcoinjs-lib'
 
 global.getEntropy = function (numberOfBytes: number) {
     var charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -67,12 +68,47 @@ global.validateMnemonic = function (mnemonic: string)
     return bip39.validateMnemonic(mnemonic)
 }
 
-global.mnemonicToSeed = function(mnemonic: string)
+global.mnemonicToPrivateKey = function(mnemonic: string)
 {
-    return bip39.mnemonicToSeedHex(mnemonic)
+const seedBuffer = bip39.mnemonicToSeed(mnemonic)
+let masterKeychain = HDNode.fromSeedBuffer(seedBuffer)
+return masterKeychain.keyPair.d.toBuffer(32).toString('hex')
 }
 
 ```
+
+
+We must override some config in our app so that certain keywords / class types don't get changed to random variables.
+To do this
+- `npm run eject`
+- edit the file: config/webpack.config.prod.js
+- modify the section: new webpack.optimize.UglifyJsPlugin({...}),
+to contain the following code
+```
+new webpack.optimize.UglifyJsPlugin({
+mangle: {
+except: ['Array','BigInteger','Boolean','ECPair','Function','Number','Point']
+},
+compress: {
+warnings: false,
+// Disabled because of an issue with Uglify breaking seemingly valid code:
+// https://github.com/facebookincubator/create-react-app/issues/2376
+// Pending further investigation:
+// https://github.com/mishoo/UglifyJS2/issues/2011
+comparisons: false,
+},
+output: {
+comments: false,
+// Turned on because emoji and regex is not minified properly using default
+// https://github.com/facebookincubator/create-react-app/issues/2488
+ascii_only: true,
+},
+sourceMap: true,
+}),
+```
+
+
+
 
 - `npm run build`
 - our new js file will be built into build/static/js

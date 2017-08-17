@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BlockstackCoreApi-iOS'
-  s.version          = '0.1.26'
+  s.version          = '0.1.27'
   s.summary          = 'A pod for interacting with blockstack core, core.blockstack.org'
 
 # This description is used to generate tags and improve search results.
@@ -39,5 +39,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+   s.dependency 'AFNetworking', '~> 2.3'
 end

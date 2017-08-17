@@ -76,6 +76,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="XOE-G0-PdT"/>
                     <connections>
+                        <outlet property="loginButton" destination="F6P-Nr-Wq3" id="KlM-W0-QHf"/>
                         <outlet property="titleLabel" destination="ElP-75-TPd" id="Cmx-t3-tDU"/>
                     </connections>
                 </viewController>

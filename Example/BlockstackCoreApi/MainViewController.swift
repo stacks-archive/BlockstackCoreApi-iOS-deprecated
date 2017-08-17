@@ -12,6 +12,7 @@ import BlockstackCoreApi_iOS
 class MainViewController: UIViewController {
     
     @IBOutlet var titleLabel : UILabel!
+    @IBOutlet var loginButton : UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,11 +73,24 @@ class MainViewController: UIViewController {
         if let currentUserName = BlockstackAuth.currentUserProfile()?.name ?? BlockstackAuth.currentUserProfile()?.givenName
         {
             titleLabel.text = "Logged in as: \(currentUserName)"
+            loginButton.setTitle("Log Out", for: .normal)
+        }
+        else{
+            titleLabel.text = "Hello, Blockstack"
+            loginButton.setTitle("Login with Blockstack", for: .normal)
         }
     }
     
     @IBAction func authorize()
     {
+        //log out
+        if BlockstackAuth.loggedIn()
+        {
+            BlockstackAuth.logout()
+            setDisplayLabel()
+            return
+        }
+        
         //verify blockstack is installed.
         guard (BlockstackAuth.canAuthorize() == true) else
         {
@@ -94,26 +108,10 @@ class MainViewController: UIViewController {
         //perform an authorization with a random ID and the app name.
         //alert the user of the result
         BlockstackAuth.authorize() { (response) in
-                if let response = response
+                if let _ = response
                 {
-                    var userDescription = ""
-                    if let name = response.username
-                    {
-                        userDescription = name
-                    }
-                    else if let name = response.profile.givenName
-                    {
-                        userDescription = name
-                    }
-                    else if let address = response.profile.account.first?.identifier, let service = response.profile.account.first?.service
-                    {
-                        userDescription = "\(service): \(address)"
-                    }else{
-                        userDescription = response.authResponseToken
-                    }
-                    
                     self.setDisplayLabel()
-                    let alert = UIAlertController(title: "Authorization Successful", message: "Blockstack access granted:\n\(userDescription)", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Authorization Successful", message: "Blockstack access granted", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
                         
                     }))
@@ -128,5 +126,6 @@ class MainViewController: UIViewController {
                 }
             }
     }
+    
 }
 

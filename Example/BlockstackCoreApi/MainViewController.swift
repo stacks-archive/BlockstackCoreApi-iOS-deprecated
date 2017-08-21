@@ -65,6 +65,9 @@ class MainViewController: UIViewController {
         
         let phrasePubKey = CryptoUtils.shared().derivePublicKey(privateKey: phrasePk!)
         print("phrasePubKey : \(phrasePubKey)")
+        
+        let phraseAddress = CryptoUtils.shared().address(from: phrasePubKey)
+        print("phraseAddress : \(phraseAddress)")
     }
     
     func setDisplayLabel()

@@ -1,5 +1,10 @@
 # BlockstackCoreApi
 
+**This package is deprecated and will no longer work with the modern Blockstack platform.**
+
+Please use the [official Blockstack iOS SDK](https://github.com/blockstack/blockstack-ios).
+
+
 [![CI Status](http://img.shields.io/travis/lsease@gmail.com/BlockstackCoreApi.svg?style=flat)](https://travis-ci.org/lsease@gmail.com/BlockstackCoreApi)
 [![Version](https://img.shields.io/cocoapods/v/BlockstackCoreApi.svg?style=flat)](http://cocoapods.org/pods/BlockstackCoreApi)
 [![License](https://img.shields.io/cocoapods/l/BlockstackCoreApi.svg?style=flat)](http://cocoapods.org/pods/BlockstackCoreApi)
